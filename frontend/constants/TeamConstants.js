@@ -1,0 +1,4 @@
+module.exports = {
+  TEAMS_RECEIVED: "TEAMS_RECEIVED",
+  TEAM_RECEIVED: "TEAM_RECEIVED",
+};

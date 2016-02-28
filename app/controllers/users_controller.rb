@@ -5,10 +5,10 @@ class UsersController < ApplicationController
 
    if @user.save
      login! @user
-     redirect_to "/api/teams/#{team_id}"
+     redirect_to "/teams/#{team_id}/main"
    else
      flash[:errors] = @user.errors.full_messages
-     redirect_to "/teams/#{team_id}/sign_up"
+     redirect_to "/teams/#{team_id}/sign_up/"
    end
  end
 

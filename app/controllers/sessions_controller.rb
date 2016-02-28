@@ -11,16 +11,16 @@ class SessionsController < ApplicationController
     @user = User.find_by_credentials(username, team_id, password)
     if @user
       login!(@user)
-      redirect_to "/api/teams/#{team_id}"
+      redirect_to "/teams/#{team_id}/main"
     else
       flash[:errors] = ["Incorrect Credentials"]
-      redirect_to "/teams/#{team_id}/login"
+      redirect_to "/teams/#{team_id}/login/"
     end
   end
 
   def destroy
     sign_out!
-    redirect_to  "/teams/#{team_id}/login"
+    redirect_to  "/teams/#{team_id}/login/"
   end
 
 end

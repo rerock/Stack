@@ -6,10 +6,12 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :teams
+    resources :channels, only: [:create, :index]
   end
 
-  get 'teams/:team_id/login', to: "static_pages#login"
-  get 'teams/:team_id/sign_up', to: "static_pages#sign_up"
+  get 'teams/:team_id/login/', to: "static_pages#login"
+  get 'teams/:team_id/sign_up/', to: "static_pages#sign_up"
+  get 'teams/:team_id/main/', to: "static_pages#main"
 
 
 
