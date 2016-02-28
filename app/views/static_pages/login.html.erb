@@ -1,0 +1,49 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Stack Sign In Screen</title>
+</head>
+<body>
+<!-- <%= link_to "Sign Up", new_user_url %> -->
+  <div class="wrapper">
+    <div class="container">
+      <h1>Welcome to Stack</h1>
+        <form action="/session" method="post" class="form">
+          <%= auth_token %>
+          <input type="text" placeholder="Username" name="user[username]">
+          <input type="password" placeholder="Password" name="user[password]">
+          <button type="submit" id="login">Login</button>
+        </form>
+        <form action="/session" method="post">
+          <%= auth_token %>
+          <input
+            type="hidden"
+            name="user[username]"
+            value="GuestUser@example.com"
+            id="user_username">
+          <input
+            type="hidden"
+            name="user[password]"
+            value="GuestUser"
+            id="user_password">
+          <input
+            type="hidden"
+            name="user[password]"
+            value="GuestUser"
+            id="user_password">
+          <button type="submit" id="guest">Login as Guest User</button>
+        </form>
+        <ul class="bg-bubbles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+    </div>
+  </div>
+</body>

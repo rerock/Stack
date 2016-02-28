@@ -1,0 +1,23 @@
+<div className ="wrapper">
+  <div className="container">
+    <h1> Welcome to Stack</h1>
+    <h3>To select a team to join</h3>
+
+    <ul>
+      <% Team.all.each do |team| %>
+      <li><a href="/teams/<%= team.id %>/login"><%= team.name %></a></li>
+      <% end %>
+    </ul>
+
+
+    <h3>To create New Team</h3>
+    <form action="<%=api_teams_url%>" method="POST">
+      <%= auth_token %>
+      <input
+        type="text"
+        name="team[name]"
+        placeholder="Team Name">
+      </input>
+    </form>
+  </div>
+</div>
