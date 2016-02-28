@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resource :session, only: [:create, :new, :destroy]
 
   namespace :api, defaults: {format: :json} do
-    resources :teams
-    resources :channels, only: [:create, :index]
+    resources :teams do
+      resources :channels, only: [:create, :index]
+    end
   end
 
   get 'teams/:team_id/login/', to: "static_pages#login"

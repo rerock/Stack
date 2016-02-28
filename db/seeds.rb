@@ -9,7 +9,7 @@
 
 Team.delete_all
 User.delete_all
-# Channel.delete_all
+Channel.delete_all
 team1 = Team.create(name: "Good JOB")
 team2 = Team.create(name: "Don't Worry")
 team3 = Team.create(name: "You will be fine")
@@ -32,3 +32,10 @@ user3 = User.create(
   team_id: team3.id,
   is_admin: true
 )
+
+chan1 = Channel.create(team_id: team1.id, title:"yolo1")
+chan11 = Channel.create(team_id: team1.id, title:"yolo11")
+chan2 = Channel.create(team_id: team2.id, title:"yolo2")
+chan22 = Channel.create(team_id: team2.id, title:"yolo22")
+chan3 = Channel.create(team_id: team3.id, title:"yolo3")
+chan33 = Channel.create(team_id: team3.id, title:"yolo33")

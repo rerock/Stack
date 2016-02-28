@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def create
    @user = User.new(user_params)
-   team_id = team_id = params[:user][:team_id]
+   team_id = params[:user][:team_id]
 
    if @user.save
      login! @user

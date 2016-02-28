@@ -24,12 +24,12 @@ var ChannelSection = React.createClass({
   componentDidMount: function(){
     // ChannelStore.addChangeHandler(this._channelsChanged);
     ChannelStore.addListener(this._channelsChanged);
-    ChannelActions.fetchChannels();
+    ChannelActions.fetchChannels(this.state.team_id);
     // ChannelStore.fetch();
     //cannot do this right here
     // this.setState({channels: ChannelStore.all()});
   },
-  
+
   render: function () {
     return (
       <div>

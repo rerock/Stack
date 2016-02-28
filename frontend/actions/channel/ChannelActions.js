@@ -6,8 +6,8 @@ var ChannelActions = {
     ChannelWebApiUtil.addChannel(channel);
 
   },
-  fetchChannels: function () {
-    ChannelWebApiUtil.getAll();
+  fetchChannels: function (team_id) {
+    ChannelWebApiUtil.getAll(team_id);
   }
 };
 

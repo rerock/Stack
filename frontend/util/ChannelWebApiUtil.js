@@ -1,17 +1,17 @@
 var ChannelServerActions = require('../actions/channel/ChannelServerActions');
 
 var ChannelWebApiUtil = {
-  getAll: function () {
+  getAll: function (team_id) {
     $.ajax({
-      url: "/api/channels",
+      url: "/api/teams/" + team_id + "/channels",
       dataType: "json",
       success: function(channels){
         ChannelServerActions.receiveChannels(channels);
       }
     });
   },
-  addChannel: function(channel){
-    $.post("/api/channels", {channel: channel}, function(channel){
+  addChannel: function(channel, team_id){
+    $.post("/api/teams/" + team_id + "/channels", {channel: channel}, function(channel){
       ChannelServerActions.receiveSingleChannel(channel);
     });
   }
