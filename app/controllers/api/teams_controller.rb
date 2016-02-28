@@ -4,7 +4,8 @@ class Api::TeamsController < ApplicationController
     @team = Team.new(name: params[:team][:name])
     @team.save
 
-    render json: @team
+    redirect_to root_path
+    # render json: @team
   end
 
   def index
