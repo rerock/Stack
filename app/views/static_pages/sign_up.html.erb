@@ -1,0 +1,34 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Stack Sign Up Screen</title>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="container">
+      <h1>Welcome to Stack</h1>
+        <form action="<%= users_url %>" method="post" class="form">
+          <%= auth_token %>
+          <input type="text" placeholder="Username" name="user[username]">
+          <input
+            type="hidden"
+            name="user[team_id]"
+            value="<%= params[:team_id]%>">
+          <input type="password" placeholder="Password" name="user[password]">
+          <button type="submit" id="login-button">Sign Up</button>
+        </form>
+        <ul class="bg-bubbles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+    </div>
+  </div>
+</body>

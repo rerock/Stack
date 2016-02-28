@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
   root to: "static_pages#root"
 
+  resources :users, only: [:create, :new, :destroy, :show]
+  resource :session, only: [:create, :new, :destroy]
+
   namespace :api, defaults: {format: :json} do
     resources :teams
   end
 
   get 'teams/:team_id/login', to: "static_pages#login"
+  get 'teams/:team_id/sign_up', to: "static_pages#sign_up"
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
