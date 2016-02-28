@@ -10,13 +10,17 @@ var ChannelSection = require('./components/channel/ChannelSection');
 
 
 var routes = (
-  <Route path="/" component={ChannelSection}>
-
-  </Route>
+  <Route path="/" component={ChannelSection}></Route>
 );
 
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById('content');
-  ReactDOM.render(<Router>{routes}</Router>, root);
+  var context_data = {
+    team_id:root.dataset.teamId,
+    user_id:root.dataset.userId,
+  };
+  ReactDOM.render(<Router>{
+    <Route path="/" component={ChannelSection} routerProps={context_data}></Route>
+  }</Router>, root);
 });
