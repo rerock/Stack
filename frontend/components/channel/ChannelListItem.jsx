@@ -4,17 +4,15 @@ var ChannelsListItem = React.createClass({
 
   onClick: function(e) {
     e.preventDefault();
-    var setChannel = this.props.setChannel;
+    var setActive = this.props.setActive;
     var channel = this.props.channel;
-    this.props.setChannel(channel);
+    this.props.setActive("Channel", channel);
   },
 
   render: function () {
     var channel = this.props.channel;
-    var activeChannel = this.props.activeChannel;
-    var active = channel === activeChannel ? "active" : "";
     return (
-      <li className={active}>
+      <li>
         <a onClick={this.onClick}>{channel.title}</a>
       </li>
     );

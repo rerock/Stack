@@ -1,12 +1,12 @@
 var React = require('react');
-var UsersList = require('./UsersList');
+var UsersList = require('./UserList');
 var UserStore = require('../../stores/UserStore');
 var UserActions = require('../../actions/user/UserActions');
 
 var UserSection = React.createClass({
   getInitialState: function () {
     return({
-        users: UserStore.all(),
+        users: UserStore.getByTeam(this.props.team_id),
       });
   },
 

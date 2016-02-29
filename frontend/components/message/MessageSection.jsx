@@ -14,19 +14,27 @@ var MessageSection = React.createClass({
   createMessage: function(message){
     // MessageStore.create(message);
     message.sender_id = this.props.user_id;
-    message.receivable_id = this.props.activeChannel.id;
-    message.receivable_type = "Channel";
-    MessageActions.createMessage(message, this.props.activeChannel.id, "Channel");
+    message.receivable_type = Object.keys(this.props.active)[0];
+    message.receivable_id = this.props.active[message.receivable_type].id;
+    MessageActions.createMessage(message, message.receivable_id, message.receivable_type);
   },
 
   _messagesChanged: function (nextProps) {
-    var activeChannel = this.props.activeChannel;
+    var receivable_type = Object.keys(this.props.active)[0];
+    var receivable = this.props.active[receivable_type];
     if (nextProps){
-      activeChannel = nextProps.activeChannel;
+      receivable_type = Object.keys(nextProps.active)[0];
+      receivable = nextProps.active[message.receivable_type];
     }
-    this.setState(
-      {messages: MessageStore.getByChannel(activeChannel)}
-    );
+    if (receivable_type === "Channel") {
+      this.setState(
+        {messages: MessageStore.getByChannel(receivable)}
+      );
+    } else {
+      this.setState(
+        {messages: MessageStore.getByUser(receivable)}
+      );
+    }
   },
 
   componentDidMount: function(){
@@ -34,17 +42,21 @@ var MessageSection = React.createClass({
   },
 
   componentWillReceiveProps: function(nextProps) {
-    MessageActions.fetchMessages(nextProps.activeChannel.id, "Channel");
-    if( nextProps.activeChannel.id !== this.props.activeChannel.id ){
+    var receivable_type = Object.keys(nextProps.active)[0]
+    var receivable_id = nextProps.active[receivable_type].id
+    MessageActions.fetchMessages(receivable_id, receivable_type);
+    if( receivable_id !== this.props.active[receivable_type].id ||
+      receivable_type !== Object.keys(this.props.active)[0]
+     ){
       this._messagesChanged(nextProps);
     }
   },
 
-  render(){
-    var activeChannel = this.props.activeChannel;
+  render: function(){
+    var active = this.props.active[Object.keys(this.props.active)[0]];
     return (
       <div className='messages-container panel panel-default'>
-        <div className='panel-heading'><strong>{activeChannel.name}</strong></div>
+        <div className='panel-heading'><strong>{active.name}</strong></div>
         <div className='panel-body messages'>
           <MessageList
             messages={this.state.messages}

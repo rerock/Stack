@@ -14,6 +14,12 @@ MessageStore.getByChannel = function (channel) {
   });
 };
 
+MessageStore.getByUser = function (user) {
+  return _messages.filter(function(msg){
+    return (msg.receivable_id === user.id) && (msg.receivable_type==='User');
+  });
+};
+
 MessageStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case "ADD_MESSAGE":

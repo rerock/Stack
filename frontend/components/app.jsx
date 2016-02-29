@@ -1,6 +1,7 @@
 var React = require('react');
 var ChannelSection = require('./channel/ChannelSection.jsx');
 var MessageSection = require('./message/MessageSection.jsx');
+var UserSection = require('./user/UserSection.jsx');
 var Socket = require('./socket');
 
 module.exports = React.createClass({
@@ -9,12 +10,14 @@ module.exports = React.createClass({
     return({
         team_id: initialState.team_id,
         user_id: initialState.user_id,
-        activeChannel: {},
+        active: {receivable_type: ''},
       });
   },
 
-  setChannel: function(activeChannel){
-    this.setState({activeChannel: activeChannel});
+  setActive: function(receivable_type, receivable){
+    var active_infor = this.state.active;
+    active_infor[receivable_type] = receivable
+    this.setState({ active: active_infor});
   },
 
   render: function () {
@@ -22,7 +25,7 @@ module.exports = React.createClass({
       <div className='app'>
         <div className='nav'>
           <ChannelSection
-            setChannel={this.setChannel}
+            setActive={this.setActive}
             {...this.state}
           />
         </div>

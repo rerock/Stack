@@ -14,6 +14,13 @@ UserStore.all = function () {
   return _users.slice(0);
 };
 
+UserStore.getByTeamID = function (teamId) {
+  return _users.filter(function(user){
+    return (user.team_id === teamId) ;
+  });
+};
+
+
 UserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case UserConstants.USERS_RECEIVED:

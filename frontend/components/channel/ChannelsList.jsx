@@ -13,7 +13,7 @@ var ChannelsList = React.createClass({
               return <ChannelsListItem
                 key={channel.id}
                 channel={channel}
-                setChannel={self.props.setChannel}
+                setActive={self.props.setActive}
               />
             })
           }
