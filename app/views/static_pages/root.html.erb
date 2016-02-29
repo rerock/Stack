@@ -1,23 +1,30 @@
-<div className ="wrapper">
-  <div className="container">
-    <h1> Welcome to Stack</h1>
-    <h3>To select a team to join</h3>
+<head>
+  <meta charset="UTF-8">
+  <title>Stack Login Screen</title>
+</head>
+<body>
 
-    <ul>
-      <% Team.all.each do |team| %>
-      <li><a href="/teams/<%= team.id %>/login/"><%= team.name %></a></li>
-      <% end %>
-    </ul>
+  <div class="wrapper">
+    <div class="container">
+      <h1>Welcome to Stack</h1>
+      <div class="HelvetiList">
+        <h2>Select a Team</h2>
+        <ul >
+          <% Team.all.each do |team| %>
+          <li class="HelvetiList"><a href="/teams/<%= team.id %>/login/"><%= team.name %></a></li>
+          <% end %>
+        </ul>
+      </div>
 
+      <form action="<%=api_teams_url%>" method="POST">
+        <%= auth_token %>
+        <input
+          type="text"
+          name="team[name]"
+          placeholder="Create a New Team">
+        </input>
+      </form>
 
-    <h3>To create New Team</h3>
-    <form action="<%=api_teams_url%>" method="POST">
-      <%= auth_token %>
-      <input
-        type="text"
-        name="team[name]"
-        placeholder="Team Name">
-      </input>
-    </form>
+    </div>
   </div>
-</div>
+</body>

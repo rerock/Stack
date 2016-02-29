@@ -11,9 +11,9 @@ Team.delete_all
 User.delete_all
 Channel.delete_all
 Message.delete_all
-team1 = Team.create(name: "Good JOB")
-team2 = Team.create(name: "Don't Worry")
-team3 = Team.create(name: "You will be fine")
+team1 = Team.create(name: "Hello")
+team2 = Team.create(name: "Jan 2016")
+team3 = Team.create(name: "Good JOB")
 user1 = User.create(
   password: "GuestUser",
   username: "GuestUser@example.com",
