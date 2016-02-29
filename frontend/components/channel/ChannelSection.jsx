@@ -33,11 +33,11 @@ var ChannelSection = React.createClass({
   render: function () {
     return (
       <div>
-          <ChannelsForm create={this.createChannel}/>
           <ChannelsList
             channels={this.state.channels}
             setChannel={this.props.setChannel}
           />
+        <ChannelsForm create={this.createChannel}/>
       </div>
     );
   }

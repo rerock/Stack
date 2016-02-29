@@ -44,7 +44,7 @@ var MessageSection = React.createClass({
     var activeChannel = this.props.activeChannel;
     return (
       <div className='messages-container panel panel-default'>
-        <div className='panel-heading'><strong>{activeChannel.name || 'Select A Channel'}</strong></div>
+        <div className='panel-heading'><strong>{activeChannel.name}</strong></div>
         <div className='panel-body messages'>
           <MessageList
             messages={this.state.messages}

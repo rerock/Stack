@@ -1,7 +1,9 @@
 <div class="temp">
   <% if signed_in? %>
-    Logged in as <%= current_user.handle %>.<br>
+    <h1>Stack</h1>
+    Current User: <%= current_user.handle %><br>
   <% end %>
+  Current Team: <%= Team.all.find_by_id(params[:team_id]).name %>
 </div>
 
 <div id="content" data-team-id="<%= params[:team_id] %>" data-user-id="<%= current_user.id %>">
