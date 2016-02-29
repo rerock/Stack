@@ -1,6 +1,7 @@
 var React = require('react');
 var ChannelSection = require('./channel/ChannelSection.jsx');
 var MessageSection = require('./message/MessageSection.jsx');
+var Socket = require('./socket');
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -21,7 +22,6 @@ module.exports = React.createClass({
       <div className='app'>
         <div className='nav'>
           <ChannelSection
-            addChannel={this.addChannel}
             setChannel={this.setChannel}
             {...this.state}
           />
