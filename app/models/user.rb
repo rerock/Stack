@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   attr_reader :password
+  has_many :messages, class_name: "Message"
+  has_many :messages, as: :receivable
 
   def self.find_by_credentials(username, team_id, password)
     @user = User.find_by(username: username, team_id: team_id)

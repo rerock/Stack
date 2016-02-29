@@ -1,0 +1,24 @@
+class Api::MessagesController < ApplicationController
+  def index
+    messages = Message.all.select { |chan| chan.receivable_id == params[:team_id].to_i }
+    # debugger
+    # render json: Message.all.includes(:messages).to_json(include: :messages)
+    render json: messages.to_json
+    # render json: Message.all.select{ |chan| chan.team_id == params[:message][:team_id]}.to_json
+  end
+
+
+
+  def create
+    message = Message.new(message_params)
+    if message.save
+      render json: message
+    else
+      render json: { errors: message.errors.full_messages }, status: 422
+    end
+  end
+
+  def message_params
+    params.require(:message).permit(:sender_id, :receivable_id, :receivable_type, :text)
+  end
+end

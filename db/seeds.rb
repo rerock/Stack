@@ -10,6 +10,7 @@
 Team.delete_all
 User.delete_all
 Channel.delete_all
+Message.delete_all
 team1 = Team.create(name: "Good JOB")
 team2 = Team.create(name: "Don't Worry")
 team3 = Team.create(name: "You will be fine")
@@ -39,3 +40,6 @@ chan2 = Channel.create(team_id: team2.id, title:"yolo2")
 chan22 = Channel.create(team_id: team2.id, title:"yolo22")
 chan3 = Channel.create(team_id: team3.id, title:"yolo3")
 chan33 = Channel.create(team_id: team3.id, title:"yolo33")
+
+
+message1 = Message.create(sender_id: user1.id, receivable_id: chan1.id, receivable_type: "Channel", text: "add oil")

@@ -13,7 +13,7 @@ var ChannelsList = React.createClass({
               channel={channel}
               setChannel={self.props.setChannel}
             />
-        })
+          })
         }
       </ul>
     );

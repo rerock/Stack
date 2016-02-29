@@ -18,7 +18,7 @@ var ChannelsForm = React.createClass({
 
   render: function () {
     return (
-      <form onSubmit={this.formSubmitted}>
+      <form onSubmit={this.formSubmitted} className="channelForm">
         <input type="text" onChange={this.inputChanged} placeholder="Channel Title" value={this.state.title}/>
         <input type="submit" value="create channel!"/>
       </form>

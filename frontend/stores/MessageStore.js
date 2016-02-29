@@ -1,25 +1,33 @@
-var AppDispatcher = require('../dispatcher/dispatcher');
 var Store = require('flux/utils').Store;
-var MessageConstants = require('../constants/MessageConstants');
+var AppDispatcher = require('../dispatcher/Dispatcher');
 
-var _message = {};
-var MessageStore = new Store (AppDispatcher);
+var _messages = [];
+var MessageStore = new Store(AppDispatcher);
 
-var resetMessage = function (message) {
-  _message = message;
-};
-
-MessageStore.message = function () {
-  return _message;
+MessageStore.all = function () {
+  return _messages.slice();
 };
 
 MessageStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-    case MessageConstants.MESSAGE_RECEIVED:
-      resetMessage(payload.message);
+    case "ADD_MESSAGE":
+      addMessage(payload.message);
+      MessageStore.__emitChange();
+      break;
+    case "RECEIVE_MESSAGES":
+      resetMessages(payload.messages);
       MessageStore.__emitChange();
       break;
   }
 };
+
+function addMessage(message) {
+  _messages.push(message);
+}
+
+function resetMessages(messages) {
+  _messages = messages;
+}
+
 
 module.exports = MessageStore;
