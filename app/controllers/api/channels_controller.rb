@@ -1,7 +1,6 @@
 class Api::ChannelsController < ApplicationController
   def index
     channels = Channel.all.select { |chan| chan.team_id == params[:team_id].to_i }
-    # debugger
     # render json: Channel.all.includes(:messages).to_json(include: :messages)
     render json: channels.to_json
     # render json: Channel.all.select{ |chan| chan.team_id == params[:channel][:team_id]}.to_json

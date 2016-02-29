@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :teams do
       resources :channels, only: [:create, :index]
     end
+    resources :messages, only: [:create, :index]
   end
 
   get 'teams/:team_id/login/', to: "static_pages#login"

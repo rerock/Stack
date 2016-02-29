@@ -6,25 +6,15 @@ var ChannelActions = require('../../actions/channel/ChannelActions');
 
 var ChannelSection = React.createClass({
   getInitialState: function () {
-    var initialState = this.props.routes[0].routerProps;
-    return {
-      team_id: initialState.team_id,
-      user_id: initialState.user_id,
-      channels: ChannelStore.all(),
-      active_channel: ChannelStore.all()[0]
-    };
+    return({
+        channels: ChannelStore.all(),
+      });
   },
 
   createChannel: function(channel){
     // ChannelStore.create(channel);
-    channel.team_id=this.state.team_id;
+    channel.team_id=this.props.team_id;
     ChannelActions.createChannel(channel);
-  },
-
-  setChannel(activeChannel) {
-    console.log("asdf");
-    this.setState({activeChannel: activeChannel});
-    //TODO: Get Channels Message
   },
 
   _channelsChanged: function () {
@@ -34,7 +24,7 @@ var ChannelSection = React.createClass({
   componentDidMount: function(){
     // ChannelStore.addChangeHandler(this._channelsChanged);
     ChannelStore.addListener(this._channelsChanged);
-    ChannelActions.fetchChannels(this.state.team_id);
+    ChannelActions.fetchChannels(this.props.team_id);
     // ChannelStore.fetch();
     //cannot do this right here
     // this.setState({channels: ChannelStore.all()});
@@ -46,7 +36,7 @@ var ChannelSection = React.createClass({
           <ChannelsForm create={this.createChannel}/>
           <ChannelsList
             channels={this.state.channels}
-            setChannel={this.setChannel}
+            setChannel={this.props.setChannel}
           />
       </div>
     );

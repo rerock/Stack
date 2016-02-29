@@ -1,12 +1,10 @@
 class Api::MessagesController < ApplicationController
   def index
-    messages = Message.all.select { |chan| chan.receivable_id == params[:team_id].to_i }
-    # debugger
+    messages = Message.all.select { |chan| chan.receivable_id == params[:receivable_id].to_i }
     # render json: Message.all.includes(:messages).to_json(include: :messages)
     render json: messages.to_json
     # render json: Message.all.select{ |chan| chan.team_id == params[:message][:team_id]}.to_json
   end
-
 
 
   def create

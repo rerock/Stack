@@ -6,8 +6,8 @@ var MessageActions = {
     MessageWebApiUtil.addMessage(message);
 
   },
-  fetchMessages: function () {
-    MessageWebApiUtil.getAll();
+  fetchMessages: function (receivable_id , receivable_type) {
+    MessageWebApiUtil.getAll(receivable_id , receivable_type);
   }
 };
 

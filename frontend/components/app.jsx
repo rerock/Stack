@@ -1,31 +1,19 @@
 var React = require('react');
 var ChannelSection = require('./channel/ChannelSection.jsx');
-var MessageSection = require('./messages/MessageSection.jsx');
+var MessageSection = require('./message/MessageSection.jsx');
 
 module.exports = React.createClass({
   getInitialState: function () {
+    var initialState = this.props.routes[0].routerProps;
     return({
-        channels: [],
-        messages: [],
+        team_id: initialState.team_id,
+        user_id: initialState.user_id,
         activeChannel: {},
       });
   },
 
-  onMessageAdd: function(message){
-    var messages = this.state.messages;
-    messages.push(message);
-    this.setState({messages: messages});
-  },
-
-  onAddChannel: function(channel){
-    var channels = this.state.channels;
-    channels.push(channel);
-    this.setState({channels: channels});
-  },
-
   setChannel: function(activeChannel){
     this.setState({activeChannel: activeChannel});
-    this.setState({messages: []});
   },
 
   render: function () {
@@ -33,14 +21,14 @@ module.exports = React.createClass({
       <div className='app'>
         <div className='nav'>
           <ChannelSection
-            {...this.state}
             addChannel={this.addChannel}
             setChannel={this.setChannel}
+            {...this.state}
           />
         </div>
       <MessageSection
+        addMessage={this.addMessage}
         {...this.state}
-        addMessage={this.addMessage.bind}
       />
     </div>
   )}

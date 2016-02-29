@@ -1,31 +1,26 @@
 var React = require('react');
 
 var MessageForm = React.createClass({
+  getInitialState: function(){
+    return {
+      text: ""
+    };
+  },
 
-  onSubmit: function(e){
+  inputChanged: function(e){
+    this.setState({text: e.target.value});
+  },
+
+  formSubmitted: function(e){
     e.preventDefault();
-    var node = this.refs.message;
-    var message = node.value;
-    this.props.addMessage(message);
-    node.value = '';
+    this.props.create(this.state);
   },
 
   render: function(){
-    var input;
-    if(this.props.activeChannel.id !== undefined){
-      input = (
-        <input
-          ref='message'
-          type='text'
-          className='form-control'
-          placeholder='Add Message...' />
-      )
-    }
     return (
-      <form onSubmit={this.onSubmit}>
-        <div className='form-group'>
-          {input}
-        </div>
+      <form onSubmit={this.formSubmitted} className='form-group'>
+        <input type="text" onChange={this.inputChanged} placeholder="Message" value={this.state.text} />
+        <input type="submit" value="send your message!"/>
       </form>
     )
   }

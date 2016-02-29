@@ -5,12 +5,12 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 
-var ChannelSection = require('./components/channel/ChannelSection');
+var App = require('./components/app');
 
 
 
 var routes = (
-  <Route path="/" component={ChannelSection}></Route>
+  <Route path="/" component={App}></Route>
 );
 
 
@@ -21,6 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     user_id:root.dataset.userId,
   };
   ReactDOM.render(<Router>{
-    <Route path="/" component={ChannelSection} routerProps={context_data}></Route>
+    <Route path="/" component={App} routerProps={context_data}></Route>
   }</Router>, root);
 });
