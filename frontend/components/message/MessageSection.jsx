@@ -16,20 +16,28 @@ var MessageSection = React.createClass({
     message.sender_id = this.props.user_id;
     message.receivable_id = this.props.activeChannel.id;
     message.receivable_type = "Channel";
-    MessageActions.createMessage(message);
+    MessageActions.createMessage(message, this.props.activeChannel.id, "Channel");
   },
 
-  _messagesChanged: function () {
-    this.setState({messages: MessageStore.all()});
+  _messagesChanged: function (nextProps) {
+    var activeChannel = this.props.activeChannel;
+    if (nextProps){
+      activeChannel = nextProps.activeChannel;
+    }
+    this.setState(
+      {messages: MessageStore.getByChannel(activeChannel)}
+    );
   },
 
   componentDidMount: function(){
-    this.getMessages();
+    MessageStore.addListener(this._messagesChanged);
   },
 
-  getMessages: function(){
-    MessageStore.addListener(this._messagesChanged);
-    MessageActions.fetchMessages(this.props.activeChannel.id, "Channel");
+  componentWillReceiveProps: function(nextProps) {
+    MessageActions.fetchMessages(nextProps.activeChannel.id, "Channel");
+    if( nextProps.activeChannel.id !== this.props.activeChannel.id ){
+      this._messagesChanged(nextProps);
+    }
   },
 
   render(){

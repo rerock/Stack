@@ -8,6 +8,12 @@ MessageStore.all = function () {
   return _messages.slice();
 };
 
+MessageStore.getByChannel = function (channel) {
+  return _messages.filter(function(msg){
+    return (msg.receivable_id === channel.id) && (msg.receivable_type==='Channel');
+  });
+};
+
 MessageStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case "ADD_MESSAGE":

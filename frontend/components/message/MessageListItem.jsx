@@ -8,7 +8,7 @@ var MessageListItem = React.createClass({
     return (
       <li className='message'>
         <div className='author'>
-          <strong>{"sender_id: "+message.sender_id+"    "}</strong>
+          <strong>{"sender_id: "+message.sender_id+"    "+message.receivable_id}</strong>
           <i className='timestamp'>{createdAt}</i>
         </div>
         <div className='body'>{message.text}</div>
