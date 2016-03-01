@@ -6,7 +6,7 @@ var UserActions = require('../../actions/user/UserActions');
 var UserSection = React.createClass({
   getInitialState: function () {
     return({
-        users: UserStore.getByTeam(this.props.team_id),
+        users: UserStore.getByTeamID(this.props.team_id),
       });
   },
 

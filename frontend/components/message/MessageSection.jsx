@@ -24,7 +24,7 @@ var MessageSection = React.createClass({
     var receivable = this.props.active[receivable_type];
     if (nextProps){
       receivable_type = Object.keys(nextProps.active)[0];
-      receivable = nextProps.active[message.receivable_type];
+      receivable = nextProps.active[receivable_type];
     }
     if (receivable_type === "Channel") {
       this.setState(
@@ -45,7 +45,7 @@ var MessageSection = React.createClass({
     var receivable_type = Object.keys(nextProps.active)[0]
     var receivable_id = nextProps.active[receivable_type].id
     MessageActions.fetchMessages(receivable_id, receivable_type);
-    if( receivable_id !== this.props.active[receivable_type].id ||
+    if( receivable_id !== this.props.active[Object.keys(this.props.active)[0]].id ||
       receivable_type !== Object.keys(this.props.active)[0]
      ){
       this._messagesChanged(nextProps);

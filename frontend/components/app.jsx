@@ -15,8 +15,8 @@ module.exports = React.createClass({
   },
 
   setActive: function(receivable_type, receivable){
-    var active_infor = this.state.active;
-    active_infor[receivable_type] = receivable
+    var active_infor = {};
+    active_infor[receivable_type] = receivable;
     this.setState({ active: active_infor});
   },
 
@@ -34,5 +34,6 @@ module.exports = React.createClass({
         {...this.state}
       />
     </div>
-  )}
+  );
+}
 });
