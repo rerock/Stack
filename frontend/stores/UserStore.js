@@ -20,6 +20,12 @@ UserStore.getByTeamID = function (teamId) {
   });
 };
 
+UserStore.getByUserID= function(user_id){
+  return _users.filter(function(user){
+    return (user.id === parseInt(user_id)) ;
+  });
+};
+
 UserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case UserConstants.RECEIVE_USERS:
