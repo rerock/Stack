@@ -11,7 +11,57 @@ module.exports = React.createClass({
         team_id: initialState.team_id,
         user_id: initialState.user_id,
         active: {receivable_type: ''},
+        new_channels:[],
+        new_messages: [],
+        connected: false
       });
+  },
+
+  componentDidMount: function(){
+    var ws = new WebSocket('ws://localhost:3000');
+    var socket = Socket(ws);
+    // this.socket = socket;
+    socket.on('connect', this.onConnect.bind(this));
+    socket.on('disconnect', this.onDisconnect.bind(this));
+    socket.on('message add', this.onMessageAdd.bind(this));
+    socket.on('channel add', this.onAddChannel.bind(this));
+  },
+
+  onConnect: function(){
+    this.setState({connected: true});
+    this.socket.emit('channel subscribe');
+    this.socket.emit('user subscribe');
+  },
+
+  onDisconnect: function(){
+    this.setState({connected: false});
+  },
+
+  onMessageAdd: function(message){
+    var new_messages = this.state.new_messages;
+    new_messages.push(message);
+    this.setState({new_messages: new_messages});
+  },
+
+  addMessage: function(body){
+    var active = this.state.active;
+    var receivable_type = Object.keys(active)[0];
+    var receivable = active[receivable_type];
+    if (receivable_type === "Channel") {
+      this.socket.emit('message add', {channelId: receivable, body});
+    } else {
+      this.socket.emit('message add', {userId: receivable, body});
+    }
+  },
+
+  onAddChannel: function(channel){
+    var new_channels = this.state.new_channels;
+    new_channels.push(channel);
+    this.setState({new_channels: channels});
+  },
+
+  addChannel: function(name){
+    this.socket.emit('channel add', {name});
   },
 
   setActive: function(receivable_type, receivable){

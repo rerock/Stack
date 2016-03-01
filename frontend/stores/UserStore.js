@@ -20,7 +20,6 @@ UserStore.getByTeamID = function (teamId) {
   });
 };
 
-
 UserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case UserConstants.RECEIVE_USERS:

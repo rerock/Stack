@@ -3,7 +3,7 @@
     <h1>Stack</h1>
     Current User: <%= current_user.handle %><br>
     Current Team: <%= Team.all.find_by_id(params[:team_id]).name %><br>
-    <%= link_to "Sign Out", session_url, :method => :delete %>
+    <%= link_to "Sign Out", root_url %>
   <% end %>
 </div>
 
