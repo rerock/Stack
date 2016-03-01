@@ -32,12 +32,17 @@ var ChannelSection = React.createClass({
 
   render: function () {
     return (
-      <div>
+      <div className='support panel panel-primary'>
+        <div className='panel-heading'>
+          <strong>Channels</strong>
+        </div>
+        <div className='panel-body channels'>
           <ChannelsList
             channels={this.state.channels}
             setActive={this.props.setActive}
-          />
-        <ChannelsForm create={this.createChannel}/>
+            />
+          <ChannelsForm create={this.createChannel}/>
+        </div>
       </div>
     );
   }

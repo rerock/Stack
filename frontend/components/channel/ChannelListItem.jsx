@@ -11,6 +11,7 @@ var ChannelsListItem = React.createClass({
 
   render: function () {
     var channel = this.props.channel;
+    // var activeChannel = this.props.active[Object.keys(this.props.active)[0]];
     return (
       <li>
         <a onClick={this.onClick}>{channel.title}</a>
