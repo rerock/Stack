@@ -2,7 +2,6 @@ var React = require('react');
 var ChannelSection = require('./channel/ChannelSection.jsx');
 var MessageSection = require('./message/MessageSection.jsx');
 var UserSection = require('./user/UserSection.jsx');
-var Socket = require('./socket');
 
 module.exports = React.createClass({
   getInitialState: function () {
