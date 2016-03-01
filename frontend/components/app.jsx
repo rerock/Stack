@@ -28,6 +28,10 @@ module.exports = React.createClass({
             setActive={this.setActive}
             {...this.state}
           />
+          <UserSection
+              setActive={this.setActive}
+              {...this.state}
+          />
         </div>
       <MessageSection
         addMessage={this.addMessage}

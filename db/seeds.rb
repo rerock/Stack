@@ -22,12 +22,33 @@ user1 = User.create(
 )
 
 user2 = User.create(
+  password: "GuestUser2",
+  username: "GuestUser2@example.com",
+  team_id: team1.id,
+  is_admin: true
+)
+
+user3 = User.create(
+  password: "GuestUser3",
+  username: "GuestUser3@example.com",
+  team_id: team1.id,
+  is_admin: true
+)
+
+user4 = User.create(
+  password: "GuestUser4",
+  username: "GuestUser4@example.com",
+  team_id: team1.id,
+  is_admin: true
+)
+
+user5 = User.create(
   password: "GuestUser",
   username: "GuestUser@example.com",
   team_id: team2.id,
   is_admin: true
 )
-user3 = User.create(
+user6 = User.create(
   password: "GuestUser",
   username: "GuestUser@example.com",
   team_id: team3.id,

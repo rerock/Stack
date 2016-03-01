@@ -7,7 +7,7 @@ var UserStore = new Store (AppDispatcher);
 var _users = [];
 
 var resetUsers = function (users) {
-  _users = users.users;
+  _users = users;
 };
 
 UserStore.all = function () {
@@ -16,14 +16,14 @@ UserStore.all = function () {
 
 UserStore.getByTeamID = function (teamId) {
   return _users.filter(function(user){
-    return (user.team_id === teamId) ;
+    return (user.team_id === parseInt(teamId)) ;
   });
 };
 
 
 UserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-    case UserConstants.USERS_RECEIVED:
+    case UserConstants.RECEIVE_USERS:
       resetUsers(payload.users);
       UserStore.__emitChange();
       break;

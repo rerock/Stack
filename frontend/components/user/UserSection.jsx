@@ -11,7 +11,7 @@ var UserSection = React.createClass({
   },
 
   _usersChanged: function () {
-    this.setState({users: UserStore.all()});
+    this.setState({users: UserStore.getByTeamID(this.props.team_id)});
   },
 
   componentDidMount: function(){
@@ -24,7 +24,7 @@ var UserSection = React.createClass({
       <div>
           <UsersList
             users={this.state.users}
-            setUser={this.props.setUser}
+            setActive={this.props.setActive}
           />
       </div>
     );

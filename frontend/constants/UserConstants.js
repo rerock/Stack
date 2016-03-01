@@ -1,5 +1,5 @@
 var UserConstants = {
-  USERS_RECEIVED: "USERS_RECEIVED"
+  RECEIVE_USERS: "RECEIVE_USERS"
 };
 
 module.exports = UserConstants;

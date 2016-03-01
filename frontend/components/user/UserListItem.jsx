@@ -4,17 +4,15 @@ var UsersListItem = React.createClass({
 
   onClick: function(e) {
     e.preventDefault();
-    var setUser = this.props.setUser;
+    var setActive = this.props.setActive;
     var user = this.props.user;
-    this.props.setUser(user);
+    this.props.setActive("User",user);
   },
 
   render: function () {
     var user = this.props.user;
-    var activeUser = this.props.activeUser;
-    var active = user === activeUser ? "active" : "";
     return (
-      <li className={active}>
+      <li>
         <a onClick={this.onClick}>{user.handle}</a>
       </li>
     );

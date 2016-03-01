@@ -17,6 +17,15 @@ class UsersController < ApplicationController
    render :new
  end
 
+ def index
+   users = User.all
+   # render json: Channel.all.includes(:messages).to_json(include: :messages)
+   render json: users.to_json
+   # render json: Channel.all.select{ |chan| chan.team_id == params[:user][:team_id]}.to_json
+ end
+
+
+
  private
 
  def user_params
