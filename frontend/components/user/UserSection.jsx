@@ -21,11 +21,17 @@ var UserSection = React.createClass({
 
   render: function () {
     return (
-      <div>
+      <div className='support panel panel-primary'>
+        <div className='panel-heading'>
+          <strong>Users</strong>
+        </div>
+        <div className='panel-body users'>
           <UsersList
             users={this.state.users}
             setActive={this.props.setActive}
+            {...this.props}
           />
+        </div>
       </div>
     );
   }

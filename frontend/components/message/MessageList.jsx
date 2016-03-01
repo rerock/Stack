@@ -3,6 +3,7 @@ var MessageListItem = require('./MessageListItem.jsx');
 
 var MessageList = React.createClass({
   render: function(){
+    var self=this;
     return (
       <ul>
         {
@@ -10,6 +11,7 @@ var MessageList = React.createClass({
             return <MessageListItem
               key={message.id}
               message={message}
+              {...self.props}
             />
           })
         }

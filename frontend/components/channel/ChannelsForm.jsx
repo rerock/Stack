@@ -14,6 +14,7 @@ var ChannelsForm = React.createClass({
   formSubmitted: function(e){
     e.preventDefault();
     this.props.create(this.state);
+    this.setState({title:""});
   },
 
   render: function () {

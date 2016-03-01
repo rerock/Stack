@@ -40,6 +40,7 @@ var ChannelSection = React.createClass({
           <ChannelsList
             channels={this.state.channels}
             setActive={this.props.setActive}
+            {...this.props}
             />
           <ChannelsForm create={this.createChannel}/>
         </div>

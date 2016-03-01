@@ -11,6 +11,7 @@ var ChannelsList = React.createClass({
             key={channel.id}
             channel={channel}
             setActive={self.props.setActive}
+            {...self.props}
           />
         })
       }</ul>

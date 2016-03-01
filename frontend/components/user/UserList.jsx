@@ -10,20 +10,18 @@ var UsersList = React.createClass({
   render: function () {
     var self=this;
     return (
-      <div>
-        <h3>{"Users"}</h3>
-        <ul>
-          {
-            this.props.users.map(function(user){
-              return <UsersListItem
-                key={user.id}
-                user={user}
-                setActive={self.props.setActive}
-              />
-            })
-          }
-        </ul>
-      </div>
+      <ul>
+        {
+          this.props.users.map(function(user){
+            return <UsersListItem
+              key={user.id}
+              user={user}
+              setActive={self.props.setActive}
+              {...self.props}
+            />
+          })
+        }
+      </ul>
     );
   }
 });

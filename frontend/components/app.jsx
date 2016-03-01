@@ -10,6 +10,7 @@ module.exports = React.createClass({
     return({
         team_id: initialState.team_id,
         user_id: initialState.user_id,
+        user_name: initialState.user_name,
         active: {receivable_type: ''},
         new_channels:[],
         new_messages: [],

@@ -53,10 +53,20 @@ var MessageSection = React.createClass({
   },
 
   render: function(){
-    var active = this.props.active[Object.keys(this.props.active)[0]];
+    var activeType = Object.keys(this.props.active)[0];
+    var name;
+    if (activeType === "Channel") {
+      name = "Messages in Channel " + this.props.active[activeType].title;
+    } else if (activeType === "User") {
+      name = "Private Message with " + this.props.active[activeType].handle;
+    } else {
+      name = "Select a Channel/User";
+    }
     return (
       <div className='messages-container panel panel-default'>
-        <div className='panel-heading'><strong>{active.name}</strong></div>
+        <div className='panel-heading'>
+          <strong>{name}</strong>
+        </div>
         <div className='panel-body messages'>
           <MessageList
             messages={this.state.messages}

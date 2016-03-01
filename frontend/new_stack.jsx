@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var context_data = {
     team_id:root.dataset.teamId,
     user_id:root.dataset.userId,
+    user_name:root.dataset.userName
   };
   ReactDOM.render(<Router>{
     <Route path="/" component={App} routerProps={context_data}></Route>
