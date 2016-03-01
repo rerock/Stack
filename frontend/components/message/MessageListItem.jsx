@@ -3,6 +3,8 @@ var fecha = require('fecha');
 
 var MessageListItem = React.createClass({
   render: function(){
+    //TODO: fix message author
+    
     var message = this.props.message;
     var createdAt = fecha.format(new Date(message.created_at), 'HH:mm:ss MM/DD/YY');
     var author = this.props.user_name;
