@@ -42,6 +42,7 @@ var MessageSection = React.createClass({
   },
 
   forward_message: function(msg){
+    console.log(msg);
     var new_messages = this.state.messages;
     new_messages.push(msg);
     this.setState({messages: new_messages});
