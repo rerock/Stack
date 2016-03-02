@@ -10,20 +10,21 @@ module.exports = React.createClass({
         team_id: initialState.team_id,
         user_id: initialState.user_id,
         user_name: initialState.user_name,
-        active: {receivable_type: ''},
+        active: {receivable_type: '', receivable: ''},
         // pusher_chan: {}
       });
   },
 
   setActive: function(receivable_type, receivable){
-    var active_infor = {};
-    active_infor[receivable_type] = receivable;
-    this.setState({ active: active_infor});
+    var active = {};
+    active.receivable_type = receivable_type;
+    active.receivable = receivable;
+    this.setState({ active: active});
     // var pusher = new Pusher('112508624b4e735a4749', {
     //   encrypted: true
     // });
     // var pusher_chan = pusher.subscribe(this.state.ac)
-    this.setState({pusher_chan: pusher.subscribe()});
+    // this.setState({pusher_chan: pusher.subscribe()});
   },
 
   render: function () {

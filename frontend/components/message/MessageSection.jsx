@@ -14,17 +14,17 @@ var MessageSection = React.createClass({
   createMessage: function(message){
     // MessageStore.create(message);
     message.sender_id = this.props.user_id;
-    message.receivable_type = Object.keys(this.props.active)[0];
-    message.receivable_id = this.props.active[message.receivable_type].id;
+    message.receivable_type = this.props.active.receivable_type;
+    message.receivable_id = this.props.active.receivable.id;
     MessageActions.createMessage(message, message.receivable_id, message.receivable_type);
   },
 
   _messagesChanged: function (nextProps) {
-    var receivable_type = Object.keys(this.props.active)[0];
-    var receivable = this.props.active[receivable_type];
+    var receivable_type = this.props.active.receivable_type;
+    var receivable = this.props.active.receivable;
     if (nextProps){
-      receivable_type = Object.keys(nextProps.active)[0];
-      receivable = nextProps.active[receivable_type];
+      receivable_type = nextProps.active.receivable_type;
+      receivable = nextProps.active.receivable;
     }
     if (receivable_type === "Channel") {
       this.setState(
@@ -42,23 +42,23 @@ var MessageSection = React.createClass({
   },
 
   componentWillReceiveProps: function(nextProps) {
-    var receivable_type = Object.keys(nextProps.active)[0]
-    var receivable_id = nextProps.active[receivable_type].id
+    var receivable_type = nextProps.active.receivable_type;
+    var receivable_id = nextProps.active.receivable.id;
     MessageActions.fetchMessages(receivable_id, receivable_type);
-    if( receivable_id !== this.props.active[Object.keys(this.props.active)[0]].id ||
-      receivable_type !== Object.keys(this.props.active)[0]
+    if( receivable_id !== this.props.active.receivable.id ||
+      receivable_type !== this.props.active.receivable_type
      ){
       this._messagesChanged(nextProps);
     }
   },
 
   render: function(){
-    var activeType = Object.keys(this.props.active)[0];
+    var activeType = this.props.active.receivable_type;
     var name;
     if (activeType === "Channel") {
-      name = "Messages in Channel " + this.props.active[activeType].title;
+      name = "Messages in Channel " + this.props.active.receivable.title;
     } else if (activeType === "User") {
-      name = "Private Message with " + this.props.active[activeType].handle;
+      name = "Private Message with " + this.props.active.receivable.handle;
     } else {
       name = "Select a Channel/User";
     }
