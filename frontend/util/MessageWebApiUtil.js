@@ -24,15 +24,11 @@ var MessageWebApiUtil = {
         receivable_type: receivable_type
       },
       dataType: "json",
-      success: function(message){
-        MessageServerActions.receiveSingleMessage(message);
+      success: function(msg){
+        MessageServerActions.receiveSingleMessage(msg);
       }
     });
   },
-
-  forward_pusher: function(){
-    
-  }
 };
 
 module.exports = MessageWebApiUtil;

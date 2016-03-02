@@ -16,7 +16,7 @@ var UsersListItem = React.createClass({
     var active = user === activeUser ? 'active' : '';
     return (
       <li className={active}>
-        <a onClick={this.onClick}>{user.handle}</a>
+        <a onClick={this.onClick} key={user.id}>{user.handle}</a>
       </li>
     );
   }

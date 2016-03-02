@@ -41,6 +41,12 @@ var MessageSection = React.createClass({
     MessageStore.addListener(this._messagesChanged);
   },
 
+  forward_message: function(msg){
+    var new_messages = this.state.messages;
+    new_messages.push(msg);
+    this.setState({messages: new_messages});
+  },
+
   componentWillReceiveProps: function(nextProps) {
     var receivable_type = nextProps.active.receivable_type;
     var receivable_id = nextProps.active.receivable.id;
@@ -50,6 +56,7 @@ var MessageSection = React.createClass({
      ){
       this._messagesChanged(nextProps);
     }
+    nextProps.pusher_chan.bind('forward_message', this.forward_message);
   },
 
   render: function(){

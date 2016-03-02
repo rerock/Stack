@@ -11,7 +11,7 @@ module.exports = React.createClass({
         user_id: initialState.user_id,
         user_name: initialState.user_name,
         active: {receivable_type: '', receivable: ''},
-        // pusher_chan: {}
+        pusher_chan: {}
       });
   },
 
@@ -20,11 +20,11 @@ module.exports = React.createClass({
     active.receivable_type = receivable_type;
     active.receivable = receivable;
     this.setState({ active: active});
-    // var pusher = new Pusher('112508624b4e735a4749', {
-    //   encrypted: true
-    // });
-    // var pusher_chan = pusher.subscribe(this.state.ac)
-    // this.setState({pusher_chan: pusher.subscribe()});
+    var pusher = new Pusher('112508624b4e735a4749', {
+      encrypted: true
+    });
+    var pusher_chan = pusher.subscribe('chat_channel');
+    this.setState({pusher_chan: pusher_chan});
   },
 
   render: function () {

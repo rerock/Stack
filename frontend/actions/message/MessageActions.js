@@ -9,6 +9,10 @@ var MessageActions = {
 
   fetchMessages: function (receivable_id , receivable_type) {
     MessageWebApiUtil.getAll(receivable_id , receivable_type);
+  },
+
+  forward_message: function(msg){
+    MessageWebApiUtil.forward_message(msg);
   }
 };
 
