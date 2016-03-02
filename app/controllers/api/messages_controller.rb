@@ -18,7 +18,8 @@ class Api::MessagesController < ApplicationController
   def create
     message = Message.new(message_params)
     if message.save
-      Pusher.trigger('chat_channel', 'forward_message', params[:message])
+      Pusher.trigger('chat_channel', 'forward_message', message.as_json)
+      # debugger
       render json: message
     else
       render json: { errors: message.errors.full_messages }, status: 422

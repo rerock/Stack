@@ -37,17 +37,8 @@ var MessageSection = React.createClass({
     }
   },
 
-  componentDidMount: function(){
-    MessageStore.addListener(this._messagesChanged);
-  },
-
-  forward_message: function(msg){
-    var new_messages = this.state.messages;
-    new_messages.push(msg);
-    this.setState({messages: new_messages});
-  },
-
   componentWillReceiveProps: function(nextProps) {
+    console.log("componentWillReceiveProps");
     var receivable_type = nextProps.active.receivable_type;
     var receivable_id = nextProps.active.receivable.id;
     MessageActions.fetchMessages(receivable_id, receivable_type);
@@ -56,10 +47,32 @@ var MessageSection = React.createClass({
      ){
       this._messagesChanged(nextProps);
     }
-    nextProps.pusher_chan.bind('forward_message', this.forward_message);
+    // nextProps.pusher_chan.bind('forward_message', this.forward_message);
+  },
+
+  componentWillMount: function(){
+    console.log("componentWillMount");
+    var pusher = new Pusher('112508624b4e735a4749', {
+      encrypted: true
+    });
+    this.pusher_chan = pusher.subscribe('chat_channel');
+  },
+
+  componentDidMount: function(){
+    console.log("componentDidMount");
+    MessageStore.addListener(this._messagesChanged);
+    this.pusher_chan.bind('forward_message', this.forward_message);
+  },
+
+  forward_message: function(msg){
+    var new_messages = this.state.messages;
+    debugger;
+    new_messages.push(msg);
+    this.setState({messages: new_messages});
   },
 
   render: function(){
+    console.log(this.state.messages);
     var activeType = this.props.active.receivable_type;
     var name;
     if (activeType === "Channel") {
