@@ -27,6 +27,8 @@ gem 'newrelic_rpm'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'pusher'
+gem 'websocket'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

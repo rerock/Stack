@@ -6,6 +6,11 @@ class Api::MessagesController < ApplicationController
     # render json: Message.all.select{ |chan| chan.team_id == params[:message][:team_id]}.to_json
   end
 
+  def forward_pusher
+    Pusher.trigger('chatChannel', 'forward message', {
+      message: 'hello world'
+      })
+  end
 
   def create
     message = Message.new(message_params)

@@ -11,6 +11,7 @@ module.exports = React.createClass({
         user_id: initialState.user_id,
         user_name: initialState.user_name,
         active: {receivable_type: ''},
+        // pusher_chan: {}
       });
   },
 
@@ -18,6 +19,11 @@ module.exports = React.createClass({
     var active_infor = {};
     active_infor[receivable_type] = receivable;
     this.setState({ active: active_infor});
+    // var pusher = new Pusher('112508624b4e735a4749', {
+    //   encrypted: true
+    // });
+    // var pusher_chan = pusher.subscribe(this.state.ac)
+    this.setState({pusher_chan: pusher.subscribe()});
   },
 
   render: function () {

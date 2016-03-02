@@ -28,6 +28,10 @@ var MessageWebApiUtil = {
         MessageServerActions.receiveSingleMessage(message);
       }
     });
+  },
+
+  forward_pusher: function(){
+    
   }
 };
 
