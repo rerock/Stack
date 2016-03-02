@@ -5,14 +5,6 @@ Pusher.key = '112508624b4e735a4749'
 Pusher.secret = 'fef4de8157a5a59e5d5e'
 Pusher.logger = Rails.logger
 Pusher.encrypted = true
-#
-# pusher_client = Pusher.new(
-#   app_id: '184370',
-#   key: '112508624b4e735a4749',
-#   secret: 'fef4de8157a5a59e5d5e'
-# )
-
-
 
 class Api::MessagesController < ApplicationController
 
@@ -26,7 +18,7 @@ class Api::MessagesController < ApplicationController
   def create
     message = Message.new(message_params)
     if message.save
-      Pusher.trigger('chat_channel', 'forward_message', { "message"=> message.sender_id })
+      Pusher.trigger('chat_channel', 'forward_message', params[:message])
       render json: message
     else
       render json: { errors: message.errors.full_messages }, status: 422

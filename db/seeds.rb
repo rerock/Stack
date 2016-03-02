@@ -36,8 +36,8 @@ user3 = User.create(
 )
 
 user4 = User.create(
-  password: "GuestUser4",
-  username: "GuestUser4@example.com",
+  password: "wenliang",
+  username: "wen@stack.com",
   team_id: team1.id,
   is_admin: true
 )

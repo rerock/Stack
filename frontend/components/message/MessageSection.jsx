@@ -42,7 +42,6 @@ var MessageSection = React.createClass({
   },
 
   forward_message: function(msg){
-    console.log(msg);
     var new_messages = this.state.messages;
     new_messages.push(msg);
     this.setState({messages: new_messages});
@@ -70,6 +69,7 @@ var MessageSection = React.createClass({
     } else {
       name = "Select a Channel/User";
     }
+
     return (
       <div className='messages-container panel panel-default'>
         <div className='panel-heading'>
