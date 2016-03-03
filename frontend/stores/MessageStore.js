@@ -14,9 +14,12 @@ MessageStore.getByChannel = function (channel) {
   });
 };
 
-MessageStore.getByUser = function (user) {
+MessageStore.getByPM = function (user, current_user_id) {
   return _messages.filter(function(msg){
-    return (msg.receivable_id === user.id) && (msg.receivable_type==='User');
+    return (
+      ( (msg.receivable_id === user.id) && (msg.receivable_type==='User') && (msg.sender_id===current_user_id) )
+      || ( (msg.receivable_id === current_user_id) && (msg.receivable_type==='User') && (msg.sender_id===user.id) )
+    );
   });
 };
 

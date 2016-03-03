@@ -35,6 +35,24 @@
             id="user_password">
           <button type="submit" id="guest">Login as Guest User</button>
         </form>
+        <form action="/session" method="post" class="form_static">
+          <%= auth_token %>
+          <input
+            type="hidden"
+            name="user[username]"
+            value="wen@stack.com"
+            id="user_username">
+          <input
+            type="hidden"
+            name="user[team_id]"
+            value="<%= params[:team_id]%>">
+          <input
+            type="hidden"
+            name="user[password]"
+            value="wenliang"
+            id="user_password">
+          <button type="submit" id="wen">Login as Wen</button>
+        </form>
         <ul class="bg-bubbles">
           <li></li>
           <li></li>

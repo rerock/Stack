@@ -35,7 +35,6 @@ module.exports = React.createClass({
           />
         </div>
       <MessageSection
-        addMessage={this.addMessage}
         {...this.state}
       />
     </div>

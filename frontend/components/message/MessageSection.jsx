@@ -18,20 +18,16 @@ var MessageSection = React.createClass({
     MessageActions.createMessage(message, message.receivable_id, message.receivable_type);
   },
 
-  _messagesChanged: function (nextProps) {
+  _messagesChanged: function () {
     var receivable_type = this.props.active.receivable_type;
     var receivable = this.props.active.receivable;
-    if (nextProps){
-      receivable_type = nextProps.active.receivable_type;
-      receivable = nextProps.active.receivable;
-    }
     if (receivable_type === "Channel") {
       this.setState(
         {messages: MessageStore.getByChannel(receivable)}
       );
     } else if(receivable_type === "User") {
       this.setState(
-        {messages: MessageStore.getByUser(receivable)}
+        {messages: MessageStore.getByPM(receivable, this.props.user_id)}
       );
     }
   },
@@ -39,11 +35,10 @@ var MessageSection = React.createClass({
   componentWillReceiveProps: function(nextProps) {
     var receivable_type = nextProps.active.receivable_type;
     var receivable_id = nextProps.active.receivable.id;
-    MessageActions.fetchMessages(receivable_id, receivable_type);
     if( receivable_id !== this.props.active.receivable.id ||
       receivable_type !== this.props.active.receivable_type
      ){
-      this._messagesChanged(nextProps);
+       MessageActions.fetchMessages(receivable_id, receivable_type);
     }
   },
 
@@ -55,14 +50,16 @@ var MessageSection = React.createClass({
   },
 
   componentDidMount: function(){
-    // MessageStore.addListener(this._messagesChanged);
+    MessageStore.addListener(this._messagesChanged);
     this.pusher_chan.bind('forward_message', this.forward_message);
   },
 
   forward_message: function(msg){
-    var new_messages = this.state.messages;
-    new_messages.push(msg);
-    this.setState({messages: new_messages});
+    // Todo I should move this into the dispatcher in the message store
+    // so it doesn't have to do a useless call when I already have the data
+    var receivable_type = this.props.active.receivable_type;
+    var receivable_id = this.props.active.receivable.id;
+    MessageActions.fetchMessages(receivable_id, receivable_type);
   },
 
   render: function(){
