@@ -1,14 +1,23 @@
-<div class="temp">
-  <% if signed_in? %>
-    <h1>Stack</h1>
-    Current User: <%= current_user.handle %><br>
-    Current Team: <%= Team.all.find_by_id(params[:team_id]).name %><br>
-    <%= link_to "Sign Out", root_url %>
-  <% end %>
-</div>
+<main class="splash-main">
 
-<div id="content"
-  data-team-id="<%= params[:team_id] %>"
-  data-user-id="<%= current_user.id %>"
-  data-user-name="<%= current_user.handle %>">
-</div>
+  <section class="splash-content">
+
+    <div class="temp">
+      <% if signed_in? %>
+        <h1>Stack</h1>
+        Current User: <%= current_user.handle %><br>
+        Current Team: <%= Team.all.find_by_id(params[:team_id]).name %><br>
+        <%= link_to "Sign Out", root_url %>
+      <% end %>
+    </div>
+
+    <div id="content"
+      data-team-id="<%= params[:team_id] %>"
+      data-user-id="<%= current_user.id %>"
+      data-user-name="<%= current_user.handle %>">
+    </div>
+
+  </section>
+
+
+</main>

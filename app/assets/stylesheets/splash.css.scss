@@ -1,0 +1,179 @@
+
+
+.splash-main {
+  height: 100%;
+  background: image-url("office.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.splash-logo {
+  width: 150px;
+  padding: 20px 20px;
+  position: absolute;
+
+}
+
+.splash-content {
+  position: relative;
+  padding-top: 50px;
+}
+
+
+
+.sign-in {
+  background: rgba(63,177,229,.5);
+  margin: auto;
+  width: 450px;
+  position: relative;
+}
+
+
+.form-header {
+  padding-top: 10px;
+  font-size: 24px;
+  font-weight: 300;
+  color: white;
+  padding-bottom: 10px;
+  }
+
+.form-header strong {
+  display: block;
+  font-size: 36px;
+  color: #790002;
+  padding-bottom: 10px;
+  text-align:center;
+}
+
+.sign-in label {
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.sign-in input:hover {
+  background: rgba(255,255,255,.6);
+}
+
+.sign-in input:focus {
+  background: rgba(255,255,255,1);
+  outline: 0;
+}
+
+.sign-in-buttons {
+  margin: auto;
+  display: block;
+  width: 370px;
+  padding-bottom: 10px;
+}
+
+.sign-in-button {
+  box-sizing: border-box;
+  float: left;
+  background: #790002;
+  color: white;
+  width: 165px;
+  font-weight: 300;
+  padding: 10px;
+  // bottom: 25px;
+  border-radius: 10px;
+  margin: 0 10px;
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid #790002;
+}
+
+
+
+.sign-in-button:hover {
+  border: 2px solid #790002;
+  background: white;
+  color: #790002;
+}
+
+
+
+.sign-in-button:active {
+  border: 2px solid white;
+  background: #790002;
+  color: white;
+}
+
+.password-input, .username-input, .email-input {
+  width: calc(100% - 60px);
+  display: block;
+  font-size: 20px;
+  background: rgba(255,255,255,0.3);
+  padding: 5px 30px;
+  margin-bottom: 20px;
+}
+
+::-webkit-input-placeholder {
+   color: black;
+   font-weight: 300;
+   text-align: center;
+}
+
+.username-input::after {
+  content: "Enter Username";
+  position: absolute;
+  background: red;
+  margin:auto;
+  display: block;
+}
+
+.why-quack {
+  background: rgba(119,17,19,.5);
+  color: white;
+  font-size: 36px;
+  font-weight: 300;
+  font-style: italic;
+  margin-top: 50px;
+  padding: 10px 30px;
+  text-align: center;
+}
+
+.oauth-options {
+  width: 165px;
+  float: left;
+  margin: 0 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.oauth-button {
+  display: block;
+  float: left;
+  padding: 10px;
+  width: 35px;
+  background: #790002;
+  color: white;
+}
+
+.oauth-button:nth-child(1) {
+  border-radius: 10px 0 0 10px;
+}
+
+.oauth-button:nth-child(3) {
+  border-radius: 0 10px 10px 0;
+}
+
+
+.oauth:hover {
+  background: #790002;
+}
+
+.oauth-icon {
+  font-size: 25px;
+  display: block;
+  text-align: center;
+}
+
+.oauth-button:hover {
+  color: black;
+  background: white;
+}
