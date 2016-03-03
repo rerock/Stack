@@ -27,7 +27,7 @@ var MessageSection = React.createClass({
       );
     } else if(receivable_type === "User") {
       this.setState(
-        {messages: MessageStore.getByPM(receivable, this.props.user_id)}
+        {messages: MessageStore.getByPM(receivable, parseInt(this.props.user_id))}
       );
     }
   },
@@ -38,7 +38,7 @@ var MessageSection = React.createClass({
     if( receivable_id !== this.props.active.receivable.id ||
       receivable_type !== this.props.active.receivable_type
      ){
-       MessageActions.fetchMessages(receivable_id, receivable_type);
+       MessageActions.fetchMessages(receivable_id, receivable_type, this.props.user_id);
     }
   },
 
@@ -59,7 +59,7 @@ var MessageSection = React.createClass({
     // so it doesn't have to do a useless call when I already have the data
     var receivable_type = this.props.active.receivable_type;
     var receivable_id = this.props.active.receivable.id;
-    MessageActions.fetchMessages(receivable_id, receivable_type);
+    MessageActions.fetchMessages(receivable_id, receivable_type, this.props.user_id);
   },
 
   render: function(){

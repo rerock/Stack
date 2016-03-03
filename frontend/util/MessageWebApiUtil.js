@@ -1,12 +1,13 @@
 var MessageServerActions = require('../actions/message/MessageServerActions');
 
 var MessageWebApiUtil = {
-  getAll: function (receivable_id, receivable_type) {
+  getAll: function (receivable_id, receivable_type, current_user_id) {
     $.ajax({
       url: "/api/messages",
       data: {
         receivable_id: receivable_id,
-        receivable_type: receivable_type
+        receivable_type: receivable_type,
+        current_user_id: current_user_id
       },
       dataType: "json",
       success: function(messages){

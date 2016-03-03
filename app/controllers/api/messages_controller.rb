@@ -9,7 +9,16 @@ Pusher.encrypted = true
 class Api::MessagesController < ApplicationController
 
   def index
-    messages = Message.all.select { |chan| chan.receivable_id == params[:receivable_id].to_i }
+    # debug≈ger
+    messages=[]
+
+    if params[:receivable_type] == 'Channel'
+      messages = Message.all.select { |msg| (msg.receivable_type == 'Channel') && (msg.receivable_id == params[:receivable_id].to_i)}
+    elsif params[:receivable_type] == 'User'
+     messages = Message.all.select { |msg|((msg.receivable_type == 'User')&& (((msg.receivable_id == params[:receivable_id].to_i)&& (msg.sender_id == params[:current_user_id].to_i))||((msg.receivable_id == params[:current_user_id].to_i)&& (msg.sender_id == params[:receivable_id].to_i))))}
+    else
+      p('invalid receivable_type message_contoller')
+    end
     # render json: Message.all.includes(:messages).to_json(include: :messages)
     render json: messages.to_json
     # render json: Message.all.select{ |chan| chan.team_id == params[:message][:team_id]}.to_json
@@ -19,7 +28,6 @@ class Api::MessagesController < ApplicationController
     message = Message.new(message_params)
     if message.save
       Pusher.trigger('chat_channel', 'forward_message', message.as_json)
-      # debugger
       render json: message
     else
       render json: { errors: message.errors.full_messages }, status: 422
