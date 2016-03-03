@@ -28,6 +28,10 @@ module.exports = React.createClass({
   },
 
   render: function () {
+    var stack = "Stack";
+    var current_user = "Current User: " + this.state.user_name;
+    var current_team = "Current Team: " + this.state.team_name;
+    var signout = "/teams/"+this.state.team_id+"/login/";
     return (
       <div className='app'>
         <div className='nav'>
@@ -36,10 +40,17 @@ module.exports = React.createClass({
             {...this.state}
           />
           <UserSection
-              setActive={this.setActive}
-              {...this.state}
+            setActive={this.setActive}
+            {...this.state}
           />
+          <section className="sidebar-user">
+            <h1>{stack}</h1>
+            <h4>{current_user}</h4>
+            <h4>{current_team}</h4>
+            <a href={signout}>{"Sign Out"}</a>
+          </section>
         </div>
+
       <MessageSection
         {...this.state}
       />
