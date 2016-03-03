@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229022226) do
+ActiveRecord::Schema.define(version: 20160303073118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,14 +47,16 @@ ActiveRecord::Schema.define(version: 20160229022226) do
   add_index "teams", ["name"], name: "index_teams_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.integer  "team_id",         null: false
-    t.boolean  "is_admin",        null: false
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
-    t.string   "handle",          null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "team_id",              null: false
+    t.boolean  "is_admin",             null: false
+    t.string   "username",             null: false
+    t.string   "password_digest",      null: false
+    t.string   "session_token",        null: false
+    t.string   "handle",               null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "last_receivable_type"
+    t.integer  "last_receivable_id"
   end
 
   add_index "users", ["password_digest"], name: "index_users_on_password_digest", using: :btree

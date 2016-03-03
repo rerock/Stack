@@ -8,18 +8,17 @@ MessageStore.all = function () {
   return _messages.slice();
 };
 
-MessageStore.getByChannel = function (channel) {
+MessageStore.getByChannel = function (channel_id) {
   return _messages.filter(function(msg){
-    return (msg.receivable_id === channel.id) && (msg.receivable_type==='Channel');
+    return (msg.receivable_id === channel_id) && (msg.receivable_type==='Channel');
   });
 };
 
-MessageStore.getByPM = function (receivable, currentUserId) {
-  // debugger;
+MessageStore.getByPM = function (receivable_id, currentUserId) {
   return _messages.filter(function(msg){
     return (
-      ( (msg.receivable_id === receivable.id) && (msg.receivable_type==='User') && (msg.sender_id===currentUserId) )
-      || ( (msg.receivable_id === currentUserId) && (msg.receivable_type==='User') && (msg.sender_id===receivable.id) )
+      ( (msg.receivable_id === receivable_id) && (msg.receivable_type==='User') && (msg.sender_id===currentUserId) )
+      || ( (msg.receivable_id === currentUserId) && (msg.receivable_type==='User') && (msg.sender_id===receivable_id) )
     );
   });
 };

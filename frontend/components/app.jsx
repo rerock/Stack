@@ -3,21 +3,27 @@ var ChannelSection = require('./channel/ChannelSection.jsx');
 var MessageSection = require('./message/MessageSection.jsx');
 var UserSection = require('./user/UserSection.jsx');
 
+var ChannelActions = require('../actions/channel/ChannelActions');
+var MessageActions = require('../actions/message/MessageActions');
+var UserActions = require('../actions/user/UserActions');
+
+
 module.exports = React.createClass({
   getInitialState: function () {
     var initialState = this.props.routes[0].routerProps;
-    return({
-        team_id: initialState.team_id,
-        user_id: initialState.user_id,
-        user_name: initialState.user_name,
-        active: {receivable_type: '', receivable: ''},
-      });
+    return initialState;
   },
 
-  setActive: function(receivable_type, receivable){
+  componentDidMount: function() {
+    ChannelActions.fetchChannels(this.state.team_id);
+    MessageActions.fetchMessages(this.state.active.receivable_id, this.state.active.receivable_type, this.state.user_id);
+    UserActions.fetchUsers(this.state.team_id);
+  },
+
+  setActive: function(receivable_type, receivable_id){
     var active = {};
     active.receivable_type = receivable_type;
-    active.receivable = receivable;
+    active.receivable_id = receivable_id;
     this.setState({ active: active});
   },
 

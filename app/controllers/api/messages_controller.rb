@@ -7,11 +7,8 @@ Pusher.logger = Rails.logger
 Pusher.encrypted = true
 
 class Api::MessagesController < ApplicationController
-
   def index
-    # debug≈ger
     messages=[]
-
     if params[:receivable_type] == 'Channel'
       messages = Message.all.select { |msg| (msg.receivable_type == 'Channel') && (msg.receivable_id == params[:receivable_id].to_i)}
     elsif params[:receivable_type] == 'User'
@@ -19,9 +16,11 @@ class Api::MessagesController < ApplicationController
     else
       p('invalid receivable_type message_contoller')
     end
-    # render json: Message.all.includes(:messages).to_json(include: :messages)
+    user = User.find_by_id(params[:current_user_id])
+    user.last_receivable_id = params[:receivable_id].to_i
+    user.last_receivable_type = params[:receivable_type]
+    user.save
     render json: messages.to_json
-    # render json: Message.all.select{ |chan| chan.team_id == params[:message][:team_id]}.to_json
   end
 
   def create

@@ -15,12 +15,16 @@ var App = require('./components/app');
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  //TODO fix null root error
+  // TODO fix null root error
   var root = document.getElementById('content');
   var context_data = {
     team_id:root.dataset.teamId,
     user_id:root.dataset.userId,
-    user_name:root.dataset.userName
+    user_name:root.dataset.userName,
+    active:{
+      receivable_type:root.dataset.userLastReceivableType,
+      receivable_id:root.dataset.userLastReceivableId
+    }
   };
   ReactDOM.render(<Router>{
     <Route path="/" component={App} routerProps={context_data}></Route>

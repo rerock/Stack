@@ -3,6 +3,8 @@ var MessageList = require('./MessageList.jsx');
 var MessageForm = require('./MessageForm.jsx');
 var MessageStore = require('../../stores/MessageStore');
 var MessageActions = require('../../actions/message/MessageActions');
+var UserStore = require('../../stores/UserStore');
+var ChannelStore = require('../../stores/ChannelStore');
 
 var MessageSection = React.createClass({
   getInitialState: function () {
@@ -14,31 +16,31 @@ var MessageSection = React.createClass({
   createMessage: function(message){
     message.sender_id = this.props.user_id;
     message.receivable_type = this.props.active.receivable_type;
-    message.receivable_id = this.props.active.receivable.id;
+    message.receivable_id = this.props.active.receivable_id;
     MessageActions.createMessage(message, message.receivable_id, message.receivable_type);
   },
 
   _messagesChanged: function () {
     var receivable_type = this.props.active.receivable_type;
-    var receivable = this.props.active.receivable;
+    var receivable_id = this.props.active.receivable_id;
     if (receivable_type === "Channel") {
       this.setState(
-        {messages: MessageStore.getByChannel(receivable)}
+        {messages: MessageStore.getByChannel(parseInt(receivable_id))}
       );
     } else if(receivable_type === "User") {
       this.setState(
-        {messages: MessageStore.getByPM(receivable, parseInt(this.props.user_id))}
+        {messages: MessageStore.getByPM(parseInt(receivable_id), parseInt(this.props.user_id))}
       );
     }
   },
 
   componentWillReceiveProps: function(nextProps) {
     var receivable_type = nextProps.active.receivable_type;
-    var receivable_id = nextProps.active.receivable.id;
-    if( receivable_id !== this.props.active.receivable.id ||
+    var receivable_id = nextProps.active.receivable_id;
+    if( receivable_id !== this.props.active.receivable_id ||
       receivable_type !== this.props.active.receivable_type
      ){
-       MessageActions.fetchMessages(receivable_id, receivable_type, this.props.user_id);
+     MessageActions.fetchMessages(receivable_id, receivable_type, this.props.user_id);
     }
   },
 
@@ -58,19 +60,17 @@ var MessageSection = React.createClass({
     // Todo I should move this into the dispatcher in the message store
     // so it doesn't have to do a useless call when I already have the data
     var receivable_type = this.props.active.receivable_type;
-    var receivable_id = this.props.active.receivable.id;
+    var receivable_id = this.props.active.receivable_id;
     MessageActions.fetchMessages(receivable_id, receivable_type, this.props.user_id);
   },
 
   render: function(){
     var activeType = this.props.active.receivable_type;
     var name;
-    if (activeType === "Channel") {
-      name = "Messages in Channel " + this.props.active.receivable.title;
-    } else if (activeType === "User") {
-      name = "Private Message with " + this.props.active.receivable.handle;
-    } else {
-      name = "Select a Channel/User";
+    if (activeType === "Channel" && ChannelStore.getByChannelID(this.props.active.receivable_id)[0] ) {
+      name = "Messages in Channel " + ChannelStore.getByChannelID(this.props.active.receivable_id)[0].title;
+    } else if (activeType === "User" && UserStore.getByUserID(parseInt(this.props.active.receivable_id))[0]) {
+      name = "Private Message with " + UserStore.getByUserID(parseInt(this.props.active.receivable_id))[0].handle;
     }
 
     return (
