@@ -12,7 +12,6 @@ var MessageSection = React.createClass({
   },
 
   createMessage: function(message){
-    // MessageStore.create(message);
     message.sender_id = this.props.user_id;
     message.receivable_type = this.props.active.receivable_type;
     message.receivable_id = this.props.active.receivable.id;
@@ -30,7 +29,7 @@ var MessageSection = React.createClass({
       this.setState(
         {messages: MessageStore.getByChannel(receivable)}
       );
-    } else {
+    } else if(receivable_type === "User") {
       this.setState(
         {messages: MessageStore.getByUser(receivable)}
       );
@@ -38,7 +37,6 @@ var MessageSection = React.createClass({
   },
 
   componentWillReceiveProps: function(nextProps) {
-    console.log("componentWillReceiveProps");
     var receivable_type = nextProps.active.receivable_type;
     var receivable_id = nextProps.active.receivable.id;
     MessageActions.fetchMessages(receivable_id, receivable_type);
@@ -47,11 +45,9 @@ var MessageSection = React.createClass({
      ){
       this._messagesChanged(nextProps);
     }
-    // nextProps.pusher_chan.bind('forward_message', this.forward_message);
   },
 
   componentWillMount: function(){
-    console.log("componentWillMount");
     var pusher = new Pusher('112508624b4e735a4749', {
       encrypted: true
     });
@@ -59,20 +55,17 @@ var MessageSection = React.createClass({
   },
 
   componentDidMount: function(){
-    console.log("componentDidMount");
-    MessageStore.addListener(this._messagesChanged);
+    // MessageStore.addListener(this._messagesChanged);
     this.pusher_chan.bind('forward_message', this.forward_message);
   },
 
   forward_message: function(msg){
     var new_messages = this.state.messages;
-    debugger;
     new_messages.push(msg);
     this.setState({messages: new_messages});
   },
 
   render: function(){
-    console.log(this.state.messages);
     var activeType = this.props.active.receivable_type;
     var name;
     if (activeType === "Channel") {
