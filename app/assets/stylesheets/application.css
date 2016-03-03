@@ -363,8 +363,24 @@ li.HelvetiList a:hover {
   font-size: 16px;
 }
 .nav{
-  flex-basis: 20%;
+  float: left;
+  background: #50a3a2;
+  width: 240px;
+  color: #FCF9EC;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: width .5s;
 }
+
+.sidebar-user {
+  padding: 20px;
+  background: #50a3a2;
+  width: 230px;
+}
+
+
+
 
 .messages-container{
   flex-basis: 80%;
