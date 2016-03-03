@@ -34,7 +34,7 @@ module.exports = React.createClass({
     var signout = "/teams/"+this.state.team_id+"/login/";
     return (
       <div className='app'>
-        <div className='nav'>
+        <div className='sidebar'>
           <ChannelSection
             setActive={this.setActive}
             {...this.state}

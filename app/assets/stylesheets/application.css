@@ -310,7 +310,7 @@ li.HelvetiList:last-child {
 
 li.HelvetiList a {
   text-decoration: none;
-  color: #000;
+  color: white;
 
   -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
   -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
@@ -322,8 +322,8 @@ li.HelvetiList a {
 }
 
 li.HelvetiList a:hover {
-  font-size: 30px;
-  background: #f6f6f6;
+  font-size: 20px;
+  background: black;
 }
 
 
@@ -362,7 +362,7 @@ li.HelvetiList a:hover {
   height: 100vh;
   font-size: 16px;
 }
-.nav{
+.sidebar{
   float: left;
   background: #50a3a2;
   width: 240px;
@@ -377,6 +377,58 @@ li.HelvetiList a:hover {
   padding: 20px;
   background: #50a3a2;
   width: 230px;
+}
+
+
+.sidebar strong, .sidebar-username {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.panel-heading{
+  font-size: 30px;
+}
+
+.sidebar li {
+  padding: 5px 20px;
+  font-weight: 300;
+  font-style: italic;
+  margin-right: 20px;
+}
+
+.sidebar li.selected {
+  background: black;
+  margin-right:0;
+}
+
+.sidebar li.selected:hover {
+  cursor: default;
+  border-radius: 0;
+  margin-right:0;
+  background: black;
+  // color:
+}
+
+.sidebar li:hover {
+  background: black;
+  margin-right: 20px;
+  cursor: pointer;
+  border-radius: 0 8px 8px 0;
+  font-size: 20px;
+}
+
+
+.sidebar li{
+  text-decoration: none;
+  color: white;
+
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+  display: block;
+  width: 200px;
 }
 
 
@@ -396,6 +448,33 @@ li.HelvetiList a:hover {
   flex-direction: column;
   justify-content: space-between;
 }
+
+
+
+.message-author-name {
+  color: black;
+  font-weight: bold;
+  float: left;
+  font-size: 18px;
+  margin: 0;
+
+}
+
+
+.message-time{
+  color: black;
+  float: right;
+  font-size: 18px;
+}
+
+.message-text{
+  clear: both;
+  font-size: 15px;
+  padding-top: 15px;
+}
+
+
+
 .channels, .users{
   height: 88%;
 }
@@ -415,9 +494,7 @@ li.HelvetiList a:hover {
 .message > .body{
   flex-basis: 100%;
 }
-.active {
-  background-color: #E8E8E8;
-}
+
 .timestamp{
   color: #808080;
   font-style: italic;
