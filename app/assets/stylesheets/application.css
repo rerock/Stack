@@ -545,6 +545,7 @@ img{
 .message-section {
   float: right;
   width: 65%;
+  padding: 20px 40px;
 }
 
 .timestamp{

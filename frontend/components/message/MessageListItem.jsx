@@ -9,10 +9,9 @@ var MessageListItem = React.createClass({
     var author = UserStore.getByUserID(author_id)[0].handle;
     return (
       <li className='message'>
-        <h5 className="message-author-name">{author}</h5>
-          <div className="message-time">
-            {createdAt}
-          </div>
+        <h5 className="message-author-name">{author} </h5>
+        <span/>
+        <h5 className="message-author-name">{createdAt} </h5>
         <div className='message-text'>{message.text}</div>
       </li>
     )

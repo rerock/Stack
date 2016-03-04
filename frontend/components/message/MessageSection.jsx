@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 var MessageList = require('./MessageList.jsx');
 var MessageForm = require('./MessageForm.jsx');
 var MessageStore = require('../../stores/MessageStore');
@@ -62,7 +63,7 @@ var MessageSection = React.createClass({
   },
 
   _scrollToBottom: function() {
-    var ul = this.refs.messageList.getDOMNode();
+    var ul = ReactDOM.findDOMNode(this.refs.messageList);
     ul.scrollTop = ul.scrollHeight;
   },
 
