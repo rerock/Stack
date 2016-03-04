@@ -13,13 +13,22 @@ var MessageListItem = React.createClass({
       image = <img src={message.img_url}/>;
     }
 
+    var name_class = parseInt(this.props.user_id) === message.sender_id ?
+      "message-data" : "other-message-data"
+    var messages_class = parseInt(this.props.user_id) === message.sender_id ?
+      "my-message" : "other-message"
+
     return (
       <li className='message'>
-        <h5 className="message-author-name">{author} </h5>
-        <span/>
-        <h5 className="message-author-name">{createdAt} </h5>
-        <div className='message-text'>
+        <div className={name_class}>
+          <span className="message-data-name" >{author}</span> &nbsp; &nbsp;
+          <span className="message-data-time" >{createdAt}</span>
+        </div>
+
+        <div className={messages_class}>
           <h5>{message.text}</h5>
+        </div>
+        <div className={name_class}>
           {image}
         </div>
       </li>

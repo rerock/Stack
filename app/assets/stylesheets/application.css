@@ -473,6 +473,30 @@ img{
   padding-right: 30px;
   padding-bottom: 30px;
 }
+
+.profile{
+  height: auto;
+  width: 20%;
+  padding-left: 20px;
+}
+
+
+.message-thread-heading {
+  font-weight: bold;
+  font-size: 28px;
+  height: 80px;
+  text-align: center;
+}
+
+.message-header .profile,
+.message-header .message-thread-heading {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+
+
+
 .support, .users{
   height: 30vh;
   margin-bottom: 0;
@@ -516,17 +540,12 @@ img{
   box-sizing: border-box;
   font-family: inherit;
   font-size: 14px;
-  height: 5em;
+  height: 10vh;
   width: 100%;
   margin: 20px 0 0;
   padding: 10px;
 }
 
-
-.message-thread-heading {
-  height: 40px;
-  margin: 0;
-}
 
 .message-list-item {
   list-style: none;
@@ -536,7 +555,7 @@ img{
 .message-list {
   border: 1px solid #ccf;
   font-size: 16px;
-  height: 400px;
+  height: 60vh;
   margin: 0;
   overflow-y: auto;
   padding: 0;
@@ -544,9 +563,47 @@ img{
 
 .message-section {
   float: right;
-  width: 65%;
+  width: 75%;
   padding: 20px 40px;
 }
+
+
+.message-data {
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.other-message-data{
+  margin-bottom: 15px;
+  left: 93%;
+  font-size: 20px;
+}
+.message-data-time {
+  color: lighten(gray, 8%);
+  padding-left: 6px;
+  font-size: 16px;
+}
+
+.my-message {
+  background: #00A4A3;
+  text-align: right;
+  background-size: 50%;
+  font-size: 20px;
+}
+
+.message-data img{
+  height: auto;
+  width: 40%;
+  padding: 30px;
+}
+
+
+.other-message {
+  background: #49e16c;
+  font-size: 20px;
+}
+
+
 
 .timestamp{
   color: #808080;
