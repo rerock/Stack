@@ -12,7 +12,10 @@ var UsersListItem = React.createClass({
   render: function () {
     var user = this.props.user;
     var activeUser = this.props.active.receivable_id;
-    var active = user.id === activeUser ? 'active' : '';
+    var active = ''
+    if ( user.id === activeUser  && this.props.active.receivable_type === 'User'){
+      active = 'active';
+    }
     return (
       <li className={active}>
         <a onClick={this.onClick}>{user.handle}</a>
