@@ -52,8 +52,18 @@ var MessageSection = React.createClass({
   },
 
   componentDidMount: function(){
+    this._scrollToBottom();
     MessageStore.addListener(this._messagesChanged);
     this.pusher_chan.bind('forward_message', this.forward_message);
+  },
+
+  componentDidUpdate: function() {
+    this._scrollToBottom();
+  },
+
+  _scrollToBottom: function() {
+    var ul = this.refs.messageList.getDOMNode();
+    ul.scrollTop = ul.scrollHeight;
   },
 
   forward_message: function(msg){
@@ -72,15 +82,13 @@ var MessageSection = React.createClass({
     } else if (activeType === "User" && UserStore.getByUserID(parseInt(this.props.active.receivable_id))[0]) {
       name = "Private Message with " + UserStore.getByUserID(parseInt(this.props.active.receivable_id))[0].handle;
     }
-
     return (
-      <div className='messages-container panel panel-default'>
-        <div className='panel-heading'>
-          <strong>{name}</strong>
-        </div>
-        <div className='panel-body messages'>
+      <div className='message-section'>
+        <h3 className="message-thread-heading">{name}</h3>
+        <div className='panel-body-messages'>
           <MessageList
             messages={this.state.messages}
+            ref="messageList"
             {...this.props}
           />
           <MessageForm

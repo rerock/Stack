@@ -5,7 +5,7 @@ var MessageList = React.createClass({
   render: function(){
     var self=this;
     return (
-      <ul>
+      <ul className="message-list">
         {
           this.props.messages.map( function(message) {
             return <MessageListItem

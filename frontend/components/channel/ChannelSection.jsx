@@ -34,7 +34,7 @@ var ChannelSection = React.createClass({
     return (
       <div className='support panel panel-primary'>
         <div className='panel-heading'>
-          <strong>Channels</strong>
+          <strong>CHANNELS</strong>
         </div>
         <div className='panel-body channels'>
           <ChannelsList

@@ -29,13 +29,22 @@ module.exports = React.createClass({
 
   render: function () {
     var stack = "Stack";
-    var current_user = "Current User: " + this.state.user_name;
-    var current_team = "Current Team: " + this.state.team_name;
+    var current_user = " ♥ " + this.state.user_name;
+    var current_team = this.state.team_name;
     var signout = "/teams/"+this.state.team_id+"/login/";
+    var team_index = "/";
     return (
       <div className='app'>
         <div className='sidebar'>
           <img src="http://i.imgur.com/6cjtk5V.png"/>
+          <section className="sidebar-user">
+            <div className='panel-heading'>
+              <a href={team_index}>{current_team}</a>
+            </div>
+            <div className='panel-username'>
+              <a href={signout}>{current_user}</a>
+            </div>
+          </section>
           <ChannelSection
             setActive={this.setActive}
             {...this.state}
@@ -44,12 +53,6 @@ module.exports = React.createClass({
             setActive={this.setActive}
             {...this.state}
           />
-          <section className="sidebar-user">
-            <strong >{stack}</strong>
-            <h4>{current_user}</h4>
-            <h4>{current_team}</h4>
-            <a href={signout}>{"Sign Out"}</a>
-          </section>
         </div>
 
       <MessageSection

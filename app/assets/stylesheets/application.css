@@ -112,14 +112,20 @@ button:hover{
   width: 300px;
   color: #53e3a6;
 }
-input.channelForm :focus{
-  background-color: black;
-  width: 300px;
-  color: white;
+
+.channel-composer{
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 14px;
+  height: 2em;
+  width: 100%;
+  margin: 20px 0 0;
+  padding-right: 10px;
+  position: relative;
+  right: 15px;
+  margin-bottom: 50px;
 }
-input.channelForm:hover {
-  background-color: black;
-}
+
 .formInput {
   outline: 0;
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -141,6 +147,8 @@ input.channelForm:hover {
   width: 300px;
   color: black;
 }
+
+
 form button {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -381,6 +389,8 @@ li.HelvetiList a:hover {
 }
 
 
+
+
 .sidebar strong, .sidebar-username strong {
   font-size: 20px;
   font-weight: 700;
@@ -388,29 +398,54 @@ li.HelvetiList a:hover {
 
 .panel-heading{
   font-size: 30px;
+  color: white;
 }
 
-.sidebar li {
+.panel-username{
+  font-size: 20px;
+  color: white;
+}
+
+.panel-heading a:link, .panel-username a:link {
+    text-decoration: none;
+    color: white;
+}
+
+.panel-heading a:visited, .panel-username a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.panel-heading a:hover, .panel-username a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.panel-heading a:active, .panel-username a:active {
+    text-decoration: underline;
+    color: white;
+}
+
+
+.sidebar li, .panel-username a {
   padding: 5px 20px;
   font-weight: 300;
-  font-style: italic;
   margin-right: 20px;
 }
 
-.sidebar li.selected {
+.sidebar li.selected, .panel-username a.selected {
   background: black;
   margin-right:0;
 }
 
-.sidebar li.selected:hover {
+.sidebar li.selected:hover, .panel-username a.selected:hover {
   cursor: default;
   border-radius: 0;
   margin-right:0;
   background: black;
-  // color:
 }
 
-.sidebar li:hover {
+.sidebar li:hover, .panel-username a:hover  {
   background: black;
   margin-right: 20px;
   cursor: pointer;
@@ -419,7 +454,7 @@ li.HelvetiList a:hover {
 }
 
 
-.sidebar li{
+.sidebar li, .panel-username a. {
   text-decoration: none;
   color: white;
 
@@ -442,60 +477,74 @@ img{
   height: 30vh;
   margin-bottom: 0;
 }
-.channels, .users, .messages{
+.channels, .users{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.messages-container{
-  flex-basis: 80%;
-  margin-bottom: 0;
-  height: 100vh;
-}
-
-.message-author-name {
-  color: black;
-  font-weight: bold;
-  float: left;
-  font-size: 18px;
-  margin: 0;
-
-}
-
-
-.message-time{
-  color: black;
-  float: right;
-  font-size: 18px;
-}
-
-.message-text{
-  clear: both;
-  font-size: 15px;
-  padding-top: 15px;
-}
-
-
-
 .channels, .users{
   height: 88%;
 }
-.messages{
-  height: 94%;
-}
-.channels > ul, .messages > ul, .users > ul{
+
+.channels > ul, .users > ul{
   flex: 1;
   overflow-y: auto;
 }
-.message{
-  /*display: flex;*/
+
+
+.message-author-name{
+  color: #66c;
+  float: left;
+  font-size: 13px;
+  margin: 0;
 }
-.message > .author{
-  flex-basis: 100%;
+
+.message-time{
+  color: #aad;
+  float: right;
+  font-size: 12px;
 }
-.message > .body{
-  flex-basis: 100%;
+
+.message-text {
+  clear: both;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.message-composer {
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 14px;
+  height: 5em;
+  width: 100%;
+  margin: 20px 0 0;
+  padding: 10px;
+}
+
+
+.message-thread-heading {
+  height: 40px;
+  margin: 0;
+}
+
+.message-list-item {
+  list-style: none;
+  padding: 12px 14px 14px;
+}
+
+.message-list {
+  border: 1px solid #ccf;
+  font-size: 16px;
+  height: 400px;
+  margin: 0;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.message-section {
+  float: right;
+  width: 65%;
 }
 
 .timestamp{
