@@ -1,3 +1,11 @@
+require 'pusher'
+
+Pusher.app_id = '184370'
+Pusher.key = '112508624b4e735a4749'
+Pusher.secret = 'fef4de8157a5a59e5d5e'
+Pusher.logger = Rails.logger
+Pusher.encrypted = true
+
 class Api::ChannelsController < ApplicationController
   def index
     channels = Channel.all.select { |chan| chan.team_id == params[:team_id].to_i }
@@ -11,6 +19,7 @@ class Api::ChannelsController < ApplicationController
   def create
     channel = Channel.new(channel_params)
     if channel.save
+      Pusher.trigger('my_channels', 'new_channel', channel.as_json)
       render json: channel
     else
       render json: { errors: channel.errors.full_messages }, status: 422

@@ -11,6 +11,7 @@ var UsersListItem = React.createClass({
 
   render: function () {
     var user = this.props.user;
+    var handle = user.id === parseInt(this.props.user_id) ? "stackbot" : user.handle
     var activeUser = this.props.active.receivable_id;
     var active = ''
     if ( user.id === activeUser  && this.props.active.receivable_type === 'User'){
@@ -18,7 +19,7 @@ var UsersListItem = React.createClass({
     }
     return (
       <li className={active}>
-        <a onClick={this.onClick}>{user.handle}</a>
+        <a onClick={this.onClick}>{handle}</a>
       </li>
     );
   }

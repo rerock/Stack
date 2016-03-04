@@ -7,6 +7,7 @@ var ChannelActions = require('../actions/channel/ChannelActions');
 var MessageActions = require('../actions/message/MessageActions');
 var UserActions = require('../actions/user/UserActions');
 
+var images = require('../util/image_links');
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -36,7 +37,7 @@ module.exports = React.createClass({
     return (
       <div className='app'>
         <div className='sidebar'>
-          <img src="http://i.imgur.com/6cjtk5V.png"/>
+          <img src={images.logo}/>
           <section className="sidebar-user">
             <div className='panel-heading'>
               <a href={team_index}>{current_team}</a>

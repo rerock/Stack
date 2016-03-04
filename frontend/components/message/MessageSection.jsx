@@ -18,6 +18,7 @@ var MessageSection = React.createClass({
     message.sender_id = this.props.user_id;
     message.receivable_type = this.props.active.receivable_type;
     message.receivable_id = this.props.active.receivable_id;
+    message.img_url = arguments[1];
     MessageActions.createMessage(message, message.receivable_id, message.receivable_type);
   },
 
@@ -78,7 +79,9 @@ var MessageSection = React.createClass({
   render: function(){
     var activeType = this.props.active.receivable_type;
     var name;
-    if (activeType === "Channel" && ChannelStore.getByChannelID(this.props.active.receivable_id)[0] ) {
+    if (this.props.user_id === this.props.active.receivable_id) {
+      name = "Private Notes to yourself"
+    } else if (activeType === "Channel" && ChannelStore.getByChannelID(this.props.active.receivable_id)[0] ) {
       name = "Messages in Channel " + ChannelStore.getByChannelID(this.props.active.receivable_id)[0].title;
     } else if (activeType === "User" && UserStore.getByUserID(parseInt(this.props.active.receivable_id))[0]) {
       name = "Private Message with " + UserStore.getByUserID(parseInt(this.props.active.receivable_id))[0].handle;

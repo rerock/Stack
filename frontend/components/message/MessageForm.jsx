@@ -13,8 +13,28 @@ var MessageForm = React.createClass({
 
   formSubmitted: function(e){
     e.preventDefault();
-    this.props.create(this.state);
-    this.setState({text:""});
+    if (this.state.text.substring(0,7) === "/giphy "){
+      var query = this.state.text.substr(7);
+      var self = this;
+      var gif_data = $.get({
+        url: "http://api.giphy.com/v1/gifs/search",
+        data: {
+          api_key: "dc6zaTOxFJmzC",
+          q: query,
+          limit: 1
+        },
+        success: function(response){
+          var newMsg = self.state;
+          var image_url = response.data[0].images.original.url;
+          // debugger;
+          self.props.create(newMsg, image_url);
+          self.setState({text:""});
+        }
+      });
+    } else {
+      this.props.create(this.state, "");
+      this.setState({text:""});
+    }
   },
 
   render: function(){
