@@ -19,14 +19,16 @@ var MessageListItem = React.createClass({
       "my-message" : "other-message"
 
     return (
-      <li className='message'>
-        <div className={name_class}>
+      <li className='message group'>
+        <div className={name_class + " message-time-stamp"}>
           <span className="message-data-name" >{author}</span> &nbsp; &nbsp;
           <span className="message-data-time" >{createdAt}</span>
         </div>
 
-        <div className={messages_class}>
-          <h5>{message.text}</h5>
+        <div className="message-content group">
+          <div className={messages_class+ " message-item"}>
+            {message.text}
+          </div>
         </div>
         <div className={name_class}>
           {image}

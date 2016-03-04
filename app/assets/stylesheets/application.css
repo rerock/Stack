@@ -524,6 +524,16 @@ img{
   margin: 0;
 }
 
+.message {
+  clear: both;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .message-time{
   color: #aad;
   float: right;
@@ -537,13 +547,11 @@ img{
 }
 
 .message-composer {
-  box-sizing: border-box;
   font-family: inherit;
   font-size: 14px;
-  height: 10vh;
+  height: 50px;
   width: 100%;
   margin: 20px 0 0;
-  padding: 10px;
 }
 
 
@@ -567,48 +575,66 @@ img{
   padding: 20px 40px;
 }
 
+.message-time-stamp {
+  display: block;
+  clear: right;
+  border-radius: 5px;
+}
 
 .message-data {
-  margin-bottom: 15px;
   text-align: right;
 }
 
 .other-message-data{
-  margin-bottom: 15px;
   left: 93%;
   font-size: 20px;
 }
+
+
 .message-data-time {
   color: lighten(gray, 8%);
   padding-left: 6px;
   font-size: 16px;
 }
 
+.message-item {
+  min-width: 50%;
+  max-width: 90%;
+  font-size: 20px;
+  overflow: scroll;
+  margin-top: 10px;
+}
+
+.message-content{
+  width: 100%;
+}
+
 .my-message {
   background: #00A4A3;
-  text-align: right;
-  background-size: 50%;
-  font-size: 20px;
+  float: right;
+}
+
+
+.other-message {
+  background: #49e16c;
+  float: left;
 }
 
 .message-data img{
   height: auto;
   width: 20%;
   padding: 30px;
+  float: right;
+  display: block;
 }
 
 .other-message-data img{
   height: auto;
   width: 20%;
   padding: 30px;
+  float: left;
+  display: block;
 }
-
-
-.other-message {
-  background: #49e16c;
-  font-size: 20px;
-}
-
 
 
 .timestamp{

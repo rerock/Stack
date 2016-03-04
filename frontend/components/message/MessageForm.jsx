@@ -13,6 +13,7 @@ var MessageForm = React.createClass({
 
   formSubmitted: function(e){
     e.preventDefault();
+    //TODO check if the text file is an empty string
     if (this.state.text.substring(0,7) === "/giphy "){
       var query = this.state.text.substr(7);
       var self = this;
