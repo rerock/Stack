@@ -55,12 +55,12 @@ user6 = User.create(
   is_admin: true
 )
 
-chan1 = Channel.create(team_id: team1.id, title:"yolo1")
-chan11 = Channel.create(team_id: team1.id, title:"yolo11")
-chan2 = Channel.create(team_id: team2.id, title:"yolo2")
-chan22 = Channel.create(team_id: team2.id, title:"yolo22")
-chan3 = Channel.create(team_id: team3.id, title:"yolo3")
-chan33 = Channel.create(team_id: team3.id, title:"yolo33")
+chan1 = Channel.create(team_id: team1.id, title:"Jan 2016")
+chan11 = Channel.create(team_id: team1.id, title:"March 2016")
+chan2 = Channel.create(team_id: team2.id, title:"Jan 2015")
+chan22 = Channel.create(team_id: team2.id, title:"March 2015")
+chan3 = Channel.create(team_id: team3.id, title:"Jan 2014")
+chan33 = Channel.create(team_id: team3.id, title:"March 2014")
 
 
-message1 = Message.create(sender_id: user1.id, receivable_id: chan1.id, receivable_type: "Channel", text: "add oil")
+message1 = Message.create(sender_id: user1.id, receivable_id: chan1.id, receivable_type: "Channel", text: "working hard")

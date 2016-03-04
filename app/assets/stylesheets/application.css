@@ -597,6 +597,12 @@ img{
   padding: 30px;
 }
 
+.other-message-data img{
+  height: auto;
+  width: 40%;
+  padding: 30px;
+}
+
 
 .other-message {
   background: #49e16c;
