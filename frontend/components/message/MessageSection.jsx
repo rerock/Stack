@@ -90,8 +90,6 @@ var MessageSection = React.createClass({
       <div className='message-section'>
         <div className="message-header">
           <h3 className="message-thread-heading">{name}</h3>
-          <img src="https://cdn-images-1.medium.com/max/800/1*DV5qtU7W-Tal27f9rhYp8w.png" alt="avatar" className="profile"/>          
-        </div>
         <div className='panel-body-messages'>
           <MessageList
             messages={this.state.messages}
