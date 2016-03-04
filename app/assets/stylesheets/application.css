@@ -363,7 +363,8 @@ li.HelvetiList a:hover {
   font-size: 16px;
 }
 .sidebar{
-  float: left;
+  padding-left: 30px;
+  padding-top: 20px;
   background: #50a3a2;
   width: 240px;
   color: #FCF9EC;
@@ -374,13 +375,13 @@ li.HelvetiList a:hover {
 }
 
 .sidebar-user {
-  padding: 20px;
   background: #50a3a2;
-  width: 230px;
+  width: 210px;
+  height: 15vh
 }
 
 
-.sidebar strong, .sidebar-username {
+.sidebar strong, .sidebar-username strong {
   font-size: 20px;
   font-weight: 700;
 }
@@ -431,16 +432,14 @@ li.HelvetiList a:hover {
   width: 200px;
 }
 
-
-
-
-.messages-container{
-  flex-basis: 80%;
-  margin-bottom: 0;
-  height: 100vh;
+img{
+  height: auto;
+  width: 100%;
+  padding-right: 30px;
+  padding-bottom: 30px;
 }
 .support, .users{
-  height: 50vh;
+  height: 30vh;
   margin-bottom: 0;
 }
 .channels, .users, .messages{
@@ -449,7 +448,11 @@ li.HelvetiList a:hover {
   justify-content: space-between;
 }
 
-
+.messages-container{
+  flex-basis: 80%;
+  margin-bottom: 0;
+  height: 100vh;
+}
 
 .message-author-name {
   color: black;

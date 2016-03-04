@@ -35,6 +35,7 @@ module.exports = React.createClass({
     return (
       <div className='app'>
         <div className='sidebar'>
+          <img src="http://i.imgur.com/6cjtk5V.png"/>
           <ChannelSection
             setActive={this.setActive}
             {...this.state}
@@ -44,7 +45,7 @@ module.exports = React.createClass({
             {...this.state}
           />
           <section className="sidebar-user">
-            <h1>{stack}</h1>
+            <strong >{stack}</strong>
             <h4>{current_user}</h4>
             <h4>{current_team}</h4>
             <a href={signout}>{"Sign Out"}</a>
