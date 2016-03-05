@@ -80,11 +80,11 @@ var MessageSection = React.createClass({
     var activeType = this.props.active.receivable_type;
     var name;
     if (this.props.user_id === this.props.active.receivable_id) {
-      name = "Private Notes to yourself"
+      name = "# Private Notes to yourself"
     } else if (activeType === "Channel" && ChannelStore.getByChannelID(this.props.active.receivable_id)[0] ) {
-      name = "Messages in Channel " + ChannelStore.getByChannelID(this.props.active.receivable_id)[0].title;
+      name = "# " + ChannelStore.getByChannelID(this.props.active.receivable_id)[0].title;
     } else if (activeType === "User" && UserStore.getByUserID(parseInt(this.props.active.receivable_id))[0]) {
-      name = "Private Message with " + UserStore.getByUserID(parseInt(this.props.active.receivable_id))[0].handle;
+      name = "@ " + UserStore.getByUserID(parseInt(this.props.active.receivable_id))[0].handle;
     }
     return (
       <div className='message-section'>
