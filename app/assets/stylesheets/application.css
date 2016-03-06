@@ -431,10 +431,18 @@ li.HelvetiList a:hover {
 }
 
 .active a{
-  font-size: 20px;
   background: black;
+  margin-right: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 20px;
 }
 
+.active {
+  background: black;
+  width: 100%;
+  border-radius: 8px;
+}
 
 .sidebar li, .panel-username a {
   padding: 5px 20px;
@@ -458,7 +466,7 @@ li.HelvetiList a:hover {
   background: black;
   margin-right: 20px;
   cursor: pointer;
-  border-radius: 0 8px 8px 0;
+  border-radius: 8px;
   font-size: 20px;
 }
 

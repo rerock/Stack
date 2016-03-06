@@ -8,7 +8,9 @@
 *bundle.js*
 node_modules/*
 
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
 /tmp
+npm-debug.log
