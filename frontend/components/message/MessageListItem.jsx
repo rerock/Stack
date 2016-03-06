@@ -10,7 +10,7 @@ var MessageListItem = React.createClass({
 
     var image = "";
     if (message.img_url) {
-      image = <img src={message.img_url}/>;
+      image = <a href={message.img_url}><img src={message.img_url}/></a>
     }
 
     var name_class = parseInt(this.props.user_id) === message.sender_id ?

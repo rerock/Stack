@@ -1,6 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-weight: 300;
@@ -10,6 +9,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color: black;
   font-weight: 300;
+  overflow: hidden;
 }
 body ::-webkit-input-placeholder {
   /* WebKit browsers */
@@ -375,8 +375,7 @@ li.HelvetiList a:hover {
   font-size: 16px;
 }
 .sidebar{
-  padding-left: 30px;
-  padding-top: 20px;
+  padding: 35px 30px;
   background: #50a3a2;
   width: 240px;
   color: #FCF9EC;
@@ -393,6 +392,10 @@ li.HelvetiList a:hover {
 }
 
 
+.sidebar img {
+  padding: 2px 40px 30px 0px;
+}
+
 
 
 .sidebar strong, .sidebar-username strong {
@@ -401,8 +404,9 @@ li.HelvetiList a:hover {
 }
 
 .panel-heading{
-  font-size: 30px;
+  font-size: 27px;
   color: white;
+  padding-left: 30px;
 }
 
 .panel-username{
@@ -430,24 +434,17 @@ li.HelvetiList a:hover {
     color: white;
 }
 
-.active a{
-  background: black;
-  margin-right: 20px;
-  cursor: pointer;
-  border-radius: 8px;
-  font-size: 20px;
-}
-
 .active {
   background: black;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 70px;
 }
 
 .sidebar li, .panel-username a {
   padding: 5px 20px;
   font-weight: 300;
   margin-right: 20px;
+  padding-left: 55px;
 }
 
 .sidebar li.selected, .panel-username a.selected {
@@ -504,6 +501,10 @@ img{
   text-align: center;
 }
 
+.message-header {
+  height: 5vh;
+}
+
 .message-header .profile,
 .message-header .message-thread-heading {
   display: inline-block;
@@ -511,7 +512,9 @@ img{
 }
 
 
-
+.panel-body-messages {
+  height: 90vh;
+}
 
 .support, .users{
   height: 30vh;
@@ -589,6 +592,7 @@ img{
   float: right;
   padding: 20px 40px;
   width: 100%;
+  height: 100%;
 }
 
 .message-time-stamp {
@@ -610,11 +614,12 @@ img{
 
 
 .message-item {
-  min-width: 50%;
-  max-width: 75%;
+  max-width: 70%;
   font-size: 20px;
   overflow: scroll;
   margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .message-content{
@@ -625,8 +630,6 @@ img{
   background: #00A4A3;
   float: right;
   margin-right: 10px;
-  border-radius: 10px;
-  padding: 3px;
   color: white;
 }
 
@@ -635,25 +638,25 @@ img{
   background: #49e16c;
   float: left;
   margin-left: 10px;
-  border-radius: 10px;
-  padding: 3px;
   color: white;
 }
 
 .message-data img{
-  height: auto;
-  width: 30%;
+  height: 20vh;
+  width: 20vh;
   padding: 15px 10px;
   float: right;
   display: block;
+  border-radius: 30px;
 }
 
 .other-message-data img{
-  height: auto;
-  width: 30%;
+  height: 20vh;
+  width: 20vh;
   padding: 15px 30px;
   float: left;
   display: block;
+  border-radius: 0px;
 }
 
 
