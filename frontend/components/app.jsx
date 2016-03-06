@@ -8,6 +8,7 @@ var MessageActions = require('../actions/message/MessageActions');
 var UserActions = require('../actions/user/UserActions');
 
 var images = require('../util/image_links');
+var Search = require('./message/Search');
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -46,6 +47,9 @@ module.exports = React.createClass({
               <a href={signout}>{current_user}</a>
             </div>
           </section>
+          <Search
+            {...this.state}
+          />
           <ChannelSection
             setActive={this.setActive}
             {...this.state}

@@ -29,6 +29,7 @@ gem 'newrelic_rpm'
 gem 'bcrypt', '~> 3.1.7'
 gem 'pusher'
 gem 'websocket'
+gem 'pg_search'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

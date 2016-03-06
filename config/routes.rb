@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :channels, only: [:create, :index]
     end
     resources :messages, only: [:create, :index]
+    get 'search', to: "utils#search"
   end
 
   get 'teams/:team_id/login/', to: "static_pages#login"

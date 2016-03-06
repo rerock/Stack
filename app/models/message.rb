@@ -1,4 +1,7 @@
 class Message < ActiveRecord::Base
+  include PgSearch
+  multisearchable :against => [:text]
+
   belongs_to :receivable, polymorphic: true
   belongs_to :sender, class_name: "User"
 
