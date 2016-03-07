@@ -17,7 +17,7 @@
           <input type="password" placeholder="Password" name="user[password]">
           <button type="submit" id="login">Login</button>
         </form>
-        <form action="/session" method="post" class="form_static">
+        <form action="/session" method="post" class="form_static floating-box">
           <%= auth_token %>
           <input
             type="hidden"
@@ -35,7 +35,7 @@
             id="user_password">
           <button type="submit" id="guest">Login as Guest User</button>
         </form>
-        <form action="/session" method="post" class="form_static">
+        <form action="/session" method="post" class="form_static floating-box">
           <%= auth_token %>
           <input
             type="hidden"

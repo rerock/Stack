@@ -48,11 +48,11 @@ button:hover{
   background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
   background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
   position: absolute;
-  top: 50%;
+  top: 25%;
+  bottom: 25%;
   left: 0;
   width: 100%;
-  height: 400px;
-  margin-top: -200px;
+  height: 50%;
   overflow: hidden;
 }
 .wrapper.form-success .container h1 {
@@ -60,13 +60,15 @@ button:hover{
           transform: translateY(85px);
 }
 .container {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 80px 0;
   height: 400px;
   text-align: center;
 }
 .container h1 {
+  margin-top: 3vh;
+  margin-bottom: 20px;
   font-size: 40px;
   -webkit-transition-duration: 1s;
           transition-duration: 1s;
@@ -113,17 +115,34 @@ button:hover{
   color: #53e3a6;
 }
 
+.form_static.floating-box {
+  float: left;
+  margin: 20px 50px;
+}
+
+
 .channel-composer{
   box-sizing: border-box;
   font-family: inherit;
-  font-size: 14px;
-  height: 2em;
+  font-size: 15px;
+  height: 3em;
   width: 100%;
-  margin: 20px 0 0;
-  padding-right: 10px;
-  position: relative;
-  right: 15px;
-  margin-bottom: 50px;
+  border-radius: 40px;
+  padding:10px;
+  text-align: center;
+}
+
+
+.channel-composer::-webkit-input-placeholder{
+    color:grey;
+}
+.channel-composer:-moz-placeholder {
+    color:grey;
+}
+
+.channel-composer:hover{
+  cursor: pointer;
+  box-shadow: inset 0 0 0 5px black;
 }
 
 .formInput {
@@ -331,18 +350,12 @@ li.HelvetiList a {
   -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
   transition: font-size 0.3s ease, background-color 0.3s ease;
   display: block;
-  width: 200px;
 }
 
 li.HelvetiList a:hover {
   font-size: 20px;
   background: black;
 }
-
-
-
-
-
 
 
 
@@ -479,7 +492,7 @@ li.HelvetiList a:hover {
   -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
   transition: font-size 0.3s ease, background-color 0.3s ease;
   display: block;
-  width: 200px;
+  width: 180px;
 }
 
 img{
@@ -534,25 +547,25 @@ img{
 
 
 .search-header {
-  display: block;
-  float: right;
-  margin-top: 10px;
-  margin-right: 240px;
-  height: 1.9rem;
-  width: 240px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 15px;
+  height: 2em;
+  width: 100%;
+  border-radius: 40px;
+  padding:10px;
+  text-align: center;
 }
 
 .search-input {
   box-sizing: border-box;
-  width: 240px;
-  padding: 5px;
-  border-radius: 15px;
-  margin-right: 20px;
-  font-size: 14px;
-  height: 2em;
-  position: relative;
-  margin-right: 50px;
-  color: black;
+  font-family: inherit;
+  font-size: 15px;
+  height: 3em;
+  width: 100%;
+  border-radius: 40px;
+  padding:10px;
+  text-align: center;
 }
 
 .search-input:focus {
@@ -560,12 +573,25 @@ img{
 }
 
 .search-input::-webkit-input-placeholder{
-    color:black;
+    color:grey;
 }
 .search-input:-moz-placeholder {
-    color:black;
+    color:grey;
 }
 
+.search-input:hover{
+  cursor: pointer;
+  box-shadow: inset 0 0 0 5px black;
+}
+
+
+
+.message-composer::-webkit-input-placeholder{
+    color:grey;
+}
+.message-composer:-moz-placeholder {
+    color:grey;
+}
 
 
 .panel-body-messages {
@@ -623,11 +649,12 @@ img{
 
 .message-composer {
   font-family: inherit;
-  font-size: 14px;
-  height: 90px;
+  font-size: 20px;
+  height: 75px;
   width: 100%;
   margin: 40px 0 0;
   border: 2px solid #00A4A3;
+  padding: 10px;
 }
 
 
@@ -735,4 +762,12 @@ li{
 }
 a{
   cursor: pointer;
+}
+
+.exit-btn-4 {
+    padding: 80px 20px 20px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px #2c85b1;
+    background: #3399cc;
+    color: #fff;
 }

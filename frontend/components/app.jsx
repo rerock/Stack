@@ -30,7 +30,7 @@ module.exports = React.createClass({
 
   render: function () {
     var stack = "Stack";
-    var current_user = " @ " + this.state.user_name;
+    var current_user = "Log out as " + this.state.user_name;
     var current_team = this.state.team_name;
     var signout = "/teams/"+this.state.team_id+"/login/";
     var team_index = "/";
@@ -43,7 +43,9 @@ module.exports = React.createClass({
               <a href={team_index}>{current_team}</a>
             </div>
             <div className='panel-username'>
-              <a href={signout}>{current_user}</a>
+              <a href={signout} className="exit-btn exit-btn-4">
+                {current_user}
+              </a>
             </div>
           </section>
           <ChannelSection

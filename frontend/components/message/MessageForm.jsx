@@ -47,7 +47,7 @@ var MessageForm = React.createClass({
   render: function(){
     return (
       <form onSubmit={this.formSubmitted} className='form-group'>
-        <textarea type="text" onChange={this.inputChanged} placeholder="Type your message" value={this.state.text} className="message-composer"/>
+        <textarea type="text" onChange={this.inputChanged} placeholder="Type your message here" value={this.state.text} className="message-composer"/>
       </form>
     )
   }
