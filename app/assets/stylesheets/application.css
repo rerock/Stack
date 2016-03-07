@@ -469,10 +469,9 @@ li.HelvetiList a:hover {
 
 
 .sidebar li {
-  padding: 5px 20px;
+  padding: 5px 0px 5px 55px;
   font-weight: 300;
   margin-right: 20px;
-  padding-left: 55px;
   font-size: 20px;
 }
 
@@ -541,6 +540,9 @@ img{
   vertical-align: bottom;
 }
 
+.search-result{
+  overflow: scroll;
+}
 .header {
   height: 5vh;
   vertical-align: bottom;
@@ -586,9 +588,9 @@ img{
   height: 88%;
 }
 
-.channels > ul, .users > ul{
+.channels > ul, .users > ul, .form-group > ul{
   flex: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 

@@ -57,27 +57,30 @@ var Search = React.createClass({
           <div className="search-result" id={searchResult.id} key={key} onClick={this.handleMessageClick}>
             <ul className="search-result-body">
               <li>
-                <h2>{searchResult.text}</h2>
+                <h3>{searchResult.text}</h3>
                 <h5>{chat}</h5>
                 <h5>{"Sender: " + UserStore.getByUserID(searchResult.sender_id)[0].handle}</h5>
                 <h5>{"Date: " +new Date(searchResult.created_at).toLocaleTimeString()}</h5>
               </li>
             </ul>
-
           </div>
         );
     }.bind(this));
 
     return (
-      <div className="form-group">
-        <input
-          className="search-input"
-          type="text"
-          placeholder="Search Messages"
-          onKeyUp={this.search} />
-        <ul className="search-results-list group">
-          {searchResults}
-        </ul>
+      <div className='support panel panel-primary'>
+        <div className="form-group">
+          <input
+            className="search-input"
+            type="text"
+            placeholder="Search Messages"
+            onKeyUp={this.search} />
+        </div>
+        <div className='panel-body channels'>
+          <ul>
+            {searchResults}
+          </ul>
+        </div>
       </div>
     );
   }
