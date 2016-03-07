@@ -61,9 +61,9 @@ button:hover{
 }
 .container {
   max-width: 700px;
-  margin: 0 auto;
-  padding: 80px 0;
-  height: 400px;
+  margin: 13vh auto;
+  padding: 40px 0;
+  height: 70vh;
   text-align: center;
 }
 .container h1 {
