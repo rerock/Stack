@@ -15,8 +15,8 @@ team2 = Team.create(name: "Jan 2016")
 team3 = Team.create(name: "Good JOB")
 team1 = Team.create(name: "App Academy")
 user1 = User.create(
-  password: "GuestUser",
-  username: "GuestUser@example.com",
+  password: "Guest",
+  username: "Guest@example.com",
   team_id: team1.id,
   is_admin: true
 )

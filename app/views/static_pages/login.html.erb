@@ -3,19 +3,22 @@
   <title>Stack Sign In Screen</title>
 </head>
 <body>
-<%= link_to "Sign Up", "/teams/#{params[:team_id]}/sign_up/" %>
   <div class="wrapper">
     <div class="container">
       <h1>Welcome to Stack</h1>
         <form action="/session" method="post" class="form_static">
           <%= auth_token %>
-          <input type="text" placeholder="Username" name="user[username]">
+          <input type="text" placeholder="Email" name="user[username]">
           <input
             type="hidden"
             name="user[team_id]"
             value="<%= params[:team_id]%>">
           <input type="password" placeholder="Password" name="user[password]">
           <button type="submit" id="login">Login</button>
+        </form>
+        <form action="/teams/<%=params[:team_id]%>/sign_up/" method="get" class="form_static">
+          <%= auth_token %>
+          <button type="submit" id="sign_up">Sign Up</button>
         </form>
         <form action="/session" method="post" class="form_static floating-box">
           <%= auth_token %>
@@ -33,7 +36,7 @@
             name="user[password]"
             value="GuestUser"
             id="user_password">
-          <button type="submit" id="guest">Login as Guest User</button>
+          <button type="submit" id="guest">Login as Guest</button>
         </form>
         <form action="/session" method="post" class="form_static floating-box">
           <%= auth_token %>

@@ -57,7 +57,7 @@ var Search = React.createClass({
           <div className="search-result" id={searchResult.id} key={key} onClick={this.handleMessageClick}>
             <ul className="search-result-body">
               <li>
-                <h3>{searchResult.text}</h3>
+                <h2>{searchResult.text}</h2>
                 <h5>{chat}</h5>
                 <h5>{"Sender: " + UserStore.getByUserID(searchResult.sender_id)[0].handle}</h5>
                 <h5>{"Date: " +new Date(searchResult.created_at).toLocaleTimeString()}</h5>

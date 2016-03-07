@@ -107,7 +107,7 @@ button:hover{
 
 button:hover{
   cursor: pointer;
-  box-shadow: inset 0 0 0 5px black;
+  box-shadow: inset 0 0 0 7px black;
 }
 .form_static  input:focus {
   background-color: white;
@@ -121,26 +121,30 @@ button:hover{
 }
 
 
-.channel-composer{
+.channel-composer, .search-input{
   box-sizing: border-box;
   font-family: inherit;
   font-size: 15px;
-  height: 3em;
+  height: 2.5em;
   width: 100%;
-  border-radius: 40px;
+  border-radius: 10px;
   padding:10px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 
-.channel-composer::-webkit-input-placeholder{
+.channel-composer::-webkit-input-placeholder,
+.search-input::-webkit-input-placeholder{
     color:grey;
 }
-.channel-composer:-moz-placeholder {
+.channel-composer:-moz-placeholder,
+.search-input:-moz-placeholder {
     color:grey;
 }
 
-.channel-composer:hover{
+.channel-composer:hover,
+.search-input:hover{
   cursor: pointer;
   box-shadow: inset 0 0 0 5px black;
 }
@@ -402,7 +406,7 @@ li.HelvetiList a:hover {
 .sidebar-user {
   background: #50a3a2;
   width: 210px;
-  height: 15vh
+  height: 10vh;
 }
 
 
@@ -413,7 +417,7 @@ li.HelvetiList a:hover {
 
 
 .sidebar strong, .sidebar-username strong {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
 }
 
@@ -421,9 +425,11 @@ li.HelvetiList a:hover {
   font-size: 27px;
   color: white;
   padding-left: 30px;
+  margin-top: 15px;
 }
 
 .panel-username{
+  margin-top: 15px;
   font-size: 20px;
   color: white;
 }
@@ -439,26 +445,35 @@ li.HelvetiList a:hover {
 }
 
 .panel-heading a:hover, .panel-username a:hover {
-    text-decoration: underline;
     color: white;
 }
 
 .panel-heading a:active, .panel-username a:active {
-    text-decoration: underline;
     color: white;
 }
 
 .active {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px #2c85b1;
   background: black;
-  width: 100%;
-  border-radius: 70px;
+  width: 180px;
+  color: #fff;
 }
 
-.sidebar li, .panel-username a {
+.panel-username a {
+  padding: 5px 20px;
+  font-weight: 300;
+  text-align: center;
+}
+
+
+.sidebar li {
   padding: 5px 20px;
   font-weight: 300;
   margin-right: 20px;
   padding-left: 55px;
+  font-size: 20px;
 }
 
 .sidebar li.selected, .panel-username a.selected {
@@ -478,7 +493,7 @@ li.HelvetiList a:hover {
   margin-right: 20px;
   cursor: pointer;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 
@@ -510,7 +525,7 @@ img{
 
 .message-thread-heading {
   font-weight: bold;
-  font-size: 28px;
+  font-size: 35px;
   height: 80px;
   text-align: center;
 }
@@ -534,54 +549,13 @@ img{
 
 
 .header h1 {
-  font-size: 30px;
+  font-size: 35px;
   text-align: left;
 }
 
 .conversation-header {
   float: left;
   width: calc(100% - 240px - 300px);
-}
-
-
-
-
-.search-header {
-  box-sizing: border-box;
-  font-family: inherit;
-  font-size: 15px;
-  height: 2em;
-  width: 100%;
-  border-radius: 40px;
-  padding:10px;
-  text-align: center;
-}
-
-.search-input {
-  box-sizing: border-box;
-  font-family: inherit;
-  font-size: 15px;
-  height: 3em;
-  width: 100%;
-  border-radius: 40px;
-  padding:10px;
-  text-align: center;
-}
-
-.search-input:focus {
-  outline: 0;
-}
-
-.search-input::-webkit-input-placeholder{
-    color:grey;
-}
-.search-input:-moz-placeholder {
-    color:grey;
-}
-
-.search-input:hover{
-  cursor: pointer;
-  box-shadow: inset 0 0 0 5px black;
 }
 
 
@@ -599,7 +573,7 @@ img{
 }
 
 .support, .users{
-  height: 30vh;
+  height: 23vh;
   margin-bottom: 0;
 }
 .channels, .users{
@@ -636,7 +610,7 @@ img{
 }
 
 .message-time{
-  color: #aad;
+  color: grey;
   float: right;
   font-size: 12px;
 }
@@ -765,9 +739,10 @@ a{
 }
 
 .exit-btn-4 {
-    padding: 80px 20px 20px 20px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 3px #2c85b1;
-    background: #3399cc;
+    background: black;
+    width: 180px;
     color: #fff;
 }
