@@ -9,7 +9,6 @@ var SearchApiUtil = {
       dataType: 'json',
       data: {query: query, limit: limit},
       success: function (data) {
-        console.log("successful search!");
         SearchActions.receiveResults(data);
       }
     });

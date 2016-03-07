@@ -6,9 +6,8 @@ var UserSection = require('./user/UserSection.jsx');
 var ChannelActions = require('../actions/channel/ChannelActions');
 var MessageActions = require('../actions/message/MessageActions');
 var UserActions = require('../actions/user/UserActions');
-
-var images = require('../util/image_links');
 var Search = require('./message/Search');
+var images = require('../util/image_links');
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -47,9 +46,6 @@ module.exports = React.createClass({
               <a href={signout}>{current_user}</a>
             </div>
           </section>
-          <Search
-            {...this.state}
-          />
           <ChannelSection
             setActive={this.setActive}
             {...this.state}
@@ -58,6 +54,7 @@ module.exports = React.createClass({
             setActive={this.setActive}
             {...this.state}
           />
+          <Search {...this.state}/>
         </div>
 
       <MessageSection

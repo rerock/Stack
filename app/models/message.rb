@@ -1,3 +1,13 @@
+PgSearch.multisearch_options = {
+  :using => {
+    :tsearch =>  {
+      :prefix => true,
+      :negation => true,
+      :dictionary => "english"
+    }
+  }
+}
+
 class Message < ActiveRecord::Base
   include PgSearch
   multisearchable :against => [:text]

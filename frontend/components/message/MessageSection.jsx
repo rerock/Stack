@@ -88,9 +88,11 @@ var MessageSection = React.createClass({
     }
     return (
       <div className='message-section'>
-        <div className="message-header">
-          <h3 className="message-thread-heading">{name}</h3>
-        </div>
+        <header className="header group">
+          <div className="conversation-header">
+            <h1 className="message-thread-heading">{name}</h1>
+          </div>
+        </header>
         <div className='panel-body-messages'>
           <MessageList
             messages={this.state.messages}

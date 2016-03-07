@@ -282,6 +282,7 @@ form button:hover {
 ul.message-list{
   background: white;
   height:80vh;
+  width: 100%;
 }
 div.HelvetiList{
   width: 200px;
@@ -505,11 +506,66 @@ img{
   height: 5vh;
 }
 
+
 .message-header .profile,
 .message-header .message-thread-heading {
   display: inline-block;
   vertical-align: bottom;
 }
+
+.header {
+  height: 5vh;
+  vertical-align: bottom;
+  padding: 10px 0px;
+}
+
+
+.header h1 {
+  font-size: 30px;
+  text-align: left;
+}
+
+.conversation-header {
+  float: left;
+  width: calc(100% - 240px - 300px);
+}
+
+
+
+
+.search-header {
+  display: block;
+  float: right;
+  margin-top: 10px;
+  margin-right: 240px;
+  height: 1.9rem;
+  width: 240px;
+}
+
+.search-input {
+  box-sizing: border-box;
+  width: 240px;
+  padding: 5px;
+  border-radius: 15px;
+  margin-right: 20px;
+  font-size: 14px;
+  height: 2em;
+  position: relative;
+  margin-right: 50px;
+  color: black;
+}
+
+.search-input:focus {
+  outline: 0;
+}
+
+.search-input::-webkit-input-placeholder{
+    color:black;
+}
+.search-input:-moz-placeholder {
+    color:black;
+}
+
 
 
 .panel-body-messages {
@@ -593,6 +649,7 @@ img{
   padding: 20px 40px;
   width: 100%;
   height: 100%;
+  max-width: 70%;
 }
 
 .message-time-stamp {
@@ -614,7 +671,7 @@ img{
 
 
 .message-item {
-  max-width: 70%;
+  max-width: 60%;
   font-size: 20px;
   overflow: scroll;
   margin-top: 10px;
