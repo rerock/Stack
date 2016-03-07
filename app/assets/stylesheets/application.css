@@ -50,11 +50,9 @@ button:hover{
   background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
   background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
   position: absolute;
-  top: 25%;
-  bottom: 25%;
   left: 0;
   width: 100%;
-  height: 50%;
+  height: 100%;
   overflow: hidden;
 }
 .wrapper.form-success .container h1 {
@@ -551,14 +549,15 @@ img{
   overflow: scroll;
 }
 .header {
-  height: 5vh;
+  height: 4vh;
   vertical-align: bottom;
-  padding: 10px 0px;
+  padding-bottom: 30px;
 }
 
 
 .header h1 {
-  font-size: 35px;
+  font-size: 30px;
+  height: 80%;
   text-align: left;
 }
 
@@ -569,16 +568,16 @@ img{
 
 
 
-.message-composer::-webkit-input-placeholder{
+.oser::-webkit-input-placeholder{
     color:grey;
 }
-.message-composer:-moz-placeholder {
+.oser:-moz-placeholder {
     color:grey;
 }
 
 
 .panel-body-messages {
-  height: 90vh;
+  height: 95vh;
 }
 
 .support, .users{
@@ -633,9 +632,8 @@ img{
 .message-composer {
   font-family: inherit;
   font-size: 20px;
-  height: 75px;
+  height: 5vh;
   width: 100%;
-  margin: 40px 0 0;
   border: 2px solid #00A4A3;
   padding: 10px;
 }

@@ -30,7 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pusher'
 gem 'websocket'
 gem 'pg_search'
-
+gem 'faker'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
