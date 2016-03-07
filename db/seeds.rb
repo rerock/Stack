@@ -15,7 +15,7 @@ team2 = Team.create(name: "Jan 2016")
 team3 = Team.create(name: "Good JOB")
 team1 = Team.create(name: "App Academy")
 user1 = User.create(
-  password: "Guest",
+  password: "GuestUser",
   username: "Guest@example.com",
   team_id: team1.id,
   is_admin: true
@@ -23,44 +23,94 @@ user1 = User.create(
 
 user2 = User.create(
   password: "GuestUser2",
-  username: "GuestUser2@example.com",
+  username: "Liang@example.com",
   team_id: team1.id,
   is_admin: true
 )
 
 user3 = User.create(
   password: "GuestUser3",
-  username: "GuestUser3@example.com",
+  username: "Devin@example.com",
   team_id: team1.id,
   is_admin: true
 )
 
 user4 = User.create(
   password: "wenliang",
-  username: "wen@stack.com",
+  username: "Wen@stack.com",
   team_id: team1.id,
   is_admin: true
 )
 
-user5 = User.create(
+
+user1 = User.create(
   password: "GuestUser",
-  username: "GuestUser@example.com",
+  username: "Guest@example.com",
   team_id: team2.id,
   is_admin: true
 )
-user6 = User.create(
+
+user2 = User.create(
+  password: "GuestUser2",
+  username: "Liang@example.com",
+  team_id: team2.id,
+  is_admin: true
+)
+
+user3 = User.create(
+  password: "GuestUser3",
+  username: "Devin@example.com",
+  team_id: team2.id,
+  is_admin: true
+)
+
+user4 = User.create(
+  password: "wenliang",
+  username: "Wen@stack.com",
+  team_id: team2.id,
+  is_admin: true
+)
+
+user1 = User.create(
   password: "GuestUser",
-  username: "GuestUser@example.com",
+  username: "Guest@example.com",
   team_id: team3.id,
   is_admin: true
 )
 
-chan1 = Channel.create(team_id: team1.id, title:"Jan 2016")
-chan11 = Channel.create(team_id: team1.id, title:"March 2016")
-chan2 = Channel.create(team_id: team2.id, title:"Jan 2015")
-chan22 = Channel.create(team_id: team2.id, title:"March 2015")
-chan3 = Channel.create(team_id: team3.id, title:"Jan 2014")
-chan33 = Channel.create(team_id: team3.id, title:"March 2014")
+user2 = User.create(
+  password: "GuestUser2",
+  username: "Liang@example.com",
+  team_id: team3.id,
+  is_admin: true
+)
+
+user3 = User.create(
+  password: "GuestUser3",
+  username: "Devin@example.com",
+  team_id: team3.id,
+  is_admin: true
+)
+
+user4 = User.create(
+  password: "wenliang",
+  username: "Wen@stack.com",
+  team_id: team3.id,
+  is_admin: true
+)
 
 
-message1 = Message.create(sender_id: user1.id, receivable_id: chan1.id, receivable_type: "Channel", text: "working hard")
+chan1 = Channel.create(team_id: team1.id, title:"Ruby")
+chan11 = Channel.create(team_id: team1.id, title:"Rails")
+chan2 = Channel.create(team_id: team2.id, title:"React")
+chan22 = Channel.create(team_id: team2.id, title:"Flux")
+chan3 = Channel.create(team_id: team3.id, title:"JavaScript")
+chan33 = Channel.create(team_id: team3.id, title:"SQL")
+
+
+message1 = Message.create(sender_id: user1.id, receivable_id: chan1.id, receivable_type: "Channel", text: "Working hard")
+message2 = Message.create(sender_id: user1.id, receivable_id: chan11.id, receivable_type: "Channel", text: "Welcome!")
+message3 = Message.create(sender_id: user1.id, receivable_id: chan2.id, receivable_type: "Channel", text: "Good Morning")
+message4 = Message.create(sender_id: user1.id, receivable_id: chan22.id, receivable_type: "Channel", text: "Work, Play, Relax, Rest")
+message5 = Message.create(sender_id: user1.id, receivable_id: chan3.id, receivable_type: "Channel", text: "Good Afternoon")
+message6 = Message.create(sender_id: user1.id, receivable_id: chan33.id, receivable_type: "Channel", text: "Welcome to App Academy")

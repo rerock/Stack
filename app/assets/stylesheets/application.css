@@ -43,6 +43,8 @@ button:hover{
 }
 
 
+
+
 .wrapper {
   background: #50a3a2;
   background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
@@ -69,14 +71,17 @@ button:hover{
 .container h1 {
   margin-top: 3vh;
   margin-bottom: 20px;
-  font-size: 40px;
+  font-size: 60px;
   -webkit-transition-duration: 1s;
           transition-duration: 1s;
   -webkit-transition-timing-function: ease-in-put;
           transition-timing-function: ease-in-put;
-  font-weight: 200;
+  font-weight: bold;
 }
 
+h2 {
+  font-size: 45px;
+}
 .form_static {
   padding: 20px 0;
   position: relative;
@@ -89,13 +94,13 @@ button:hover{
   outline: 0;
   border: 1px solid rgba(255, 255, 255, 0.4);
   background-color: rgba(255, 255, 255, 0.2);
-  width: 250px;
+  width: 280px;
   border-radius: 3px;
   padding: 10px 15px;
-  margin: 0 auto 10px auto;
+  margin: 25px auto 10px auto;
   display: block;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   color: white;
   -webkit-transition-duration: 0.25s;
           transition-duration: 0.25s;
@@ -308,7 +313,8 @@ ul.message-list{
   width: 100%;
 }
 div.HelvetiList{
-  width: 200px;
+  width: 450px;
+  height: 260px;
   margin: 30px;
   text-align:center;
   -webkit-appearance: none;
@@ -316,10 +322,9 @@ div.HelvetiList{
           appearance: none;
   outline: 0;
   background-color: rgba(255, 255, 255, 0.2);
-  width: 250px;
   border-radius: 3px;
   padding: 10px 15px;
-  margin: 0 auto 10px auto;
+  margin: 10px auto 10px auto;
   display: block;
   text-align: center;
   font-size: 18px;
@@ -328,6 +333,7 @@ div.HelvetiList{
           transition-duration: 0.25s;
   font-weight: 300;
 }
+
 ul.HelvetiList  {
   list-style-type: none;
   margin: 0;
@@ -338,6 +344,7 @@ li.HelvetiList {
   font: 100 15px/1.5 Helvetica, Verdana, sans-serif;
   border-bottom: 1px solid #ccc;
   text-align:center;
+  margin:15px;
 }
 
 li.HelvetiList:last-child {
@@ -345,6 +352,7 @@ li.HelvetiList:last-child {
 }
 
 li.HelvetiList a {
+  font-size: 25px;
   text-decoration: none;
   color: white;
 
@@ -357,7 +365,7 @@ li.HelvetiList a {
 }
 
 li.HelvetiList a:hover {
-  font-size: 20px;
+  font-size: 30px;
   background: black;
 }
 
@@ -457,7 +465,6 @@ li.HelvetiList a:hover {
   border-radius: 10px;
   box-shadow: 0 3px #2c85b1;
   background: black;
-  width: 180px;
   color: #fff;
 }
 
