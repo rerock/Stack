@@ -129,7 +129,7 @@ button:hover{
   font-family: inherit;
   font-size: 15px;
   height: 2.5em;
-  width: 100%;
+  width: 85%;
   border-radius: 10px;
   padding:10px;
   text-align: center;
@@ -417,13 +417,13 @@ li.HelvetiList a:hover {
 
 
 .sidebar img {
-  padding: 2px 40px 30px 0px;
+  padding: 2px 4px 3px 0px;
 }
 
 
 
 .sidebar strong, .sidebar-username strong {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -474,10 +474,10 @@ li.HelvetiList a:hover {
 
 
 .sidebar li {
-  padding: 5px 0px 5px 55px;
+  padding: 5px 0px 5px 65px;
   font-weight: 300;
   margin-right: 20px;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .sidebar li.selected, .panel-username a.selected {
