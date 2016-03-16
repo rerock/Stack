@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   after_initialize :default_values
   def default_values
     if self.username
-      self.handle = self.username.split('@')[0]
+      self.handle = self.username.split(/\W/)[0]
     end
 
     self.is_admin ||= true

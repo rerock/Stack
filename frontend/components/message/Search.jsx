@@ -47,8 +47,8 @@ var Search = React.createClass({
 
   render: function () {
     var searchResults = this.state.results.map(function (searchResult, key) {
-        // console.log(ChannelStore.all().map((chan)=>chan.id));
-        // console.log(searchResult.receivable_type, searchResult.receivable_id);
+        console.log(ChannelStore.all().map((chan)=>chan.id));
+        console.log(searchResult.receivable_type, searchResult.receivable_id);
         var chat;
         if (searchResult.receivable_type === "Channel") {
           chat = "# Channel: " +ChannelStore.getByChannelID(searchResult.receivable_id)[0].title;

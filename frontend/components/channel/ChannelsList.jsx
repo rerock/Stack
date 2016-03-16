@@ -14,7 +14,9 @@ var ChannelsList = React.createClass({
             {...self.props}
           />
         })
-      }</ul>
+      }
+      <div style={{height: 25}}></div>
+      </ul>
     );
   }
 });

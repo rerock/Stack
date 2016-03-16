@@ -21,6 +21,7 @@ var UsersList = React.createClass({
             />
           })
         }
+        <div style={{height: 25}}></div>
       </ul>
     );
   }

@@ -488,14 +488,16 @@ li.HelvetiList a:hover {
   border-radius: 0;
   margin-right:0;
   background: black;
+  padding: 5px 0px 65px 65px;
 }
 
 .sidebar li:hover, .panel-username a:hover  {
   background: black;
-  margin-right: 20px;
+  margin: 10px 20px 20px 0px;
   cursor: pointer;
   border-radius: 8px;
   font-size: 25px;
+  /*padding: 5px 0px 55px 65px;*/
 }
 
 
