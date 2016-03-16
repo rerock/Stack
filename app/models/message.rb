@@ -16,4 +16,5 @@ class Message < ActiveRecord::Base
   belongs_to :sender, class_name: "User"
 
   validates :receivable_type, inclusion: { in: %w(Channel User) }
+  validates :text, presence: true
 end

@@ -30,7 +30,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pusher'
 gem 'websocket'
 gem 'pg_search'
-gem 'faker'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -40,6 +39,7 @@ gem 'faker'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'faker', '~> 1.6.3'
 end
 
 group :development do
