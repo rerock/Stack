@@ -19,7 +19,7 @@ EMAILS = %w(
 )
 
 28.times do
-  EMAILS << Faker::Internet.email
+  EMAILS.unshift(Faker::Internet.email)
 end
 
 Team.all.each do |team|
@@ -60,15 +60,28 @@ User.all.each do |user|
       sender_id: user.id,
       receivable_id: channel.id,
       receivable_type: "Channel",
-      text: Faker::StarWars.quote
+      text: Faker::Hacker.say_something_smart
     )
   end
 end
 
-#
-# message1 = Message.create(sender_id: user1.id, receivable_id: chan1.id, receivable_type: "Channel", text: "Working hard")
-# message2 = Message.create(sender_id: user1.id, receivable_id: chan11.id, receivable_type: "Channel", text: "Welcome!")
-# message3 = Message.create(sender_id: user1.id, receivable_id: chan2.id, receivable_type: "Channel", text: "Good Morning")
-# message4 = Message.create(sender_id: user1.id, receivable_id: chan22.id, receivable_type: "Channel", text: "Work, Play, Relax, Rest")
-# message5 = Message.create(sender_id: user1.id, receivable_id: chan3.id, receivable_type: "Channel", text: "Good Afternoon")
-# message6 = Message.create(sender_id: user1.id, receivable_id: chan33.id, receivable_type: "Channel", text: "Welcome to App Academy")
+
+
+
+User.all.each do |user|
+  other_users = User.all.select{ |other| other.id != user.id }
+  other_users.each do |other_user|
+    Message.create(
+      sender_id: user.id,
+      receivable_id: other_user.id,
+      receivable_type: "User",
+      text: Faker::StarWars.quote
+    )
+    Message.create(
+      sender_id: other_user.id,
+      receivable_id: user.id,
+      receivable_type: "User",
+      text: Faker::StarWars.quote
+    )
+  end
+end

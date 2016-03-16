@@ -38,7 +38,7 @@ var Search = React.createClass({
 
   search: function (e) {
     var query = e.target.value;
-    SearchApiUtil.search(query, 100);
+    SearchApiUtil.search(query, 100, parseInt(this.props.team_id));
     this.setState({query: query});
   },
 
@@ -47,6 +47,8 @@ var Search = React.createClass({
 
   render: function () {
     var searchResults = this.state.results.map(function (searchResult, key) {
+        console.log(ChannelStore.all().map((chan)=>chan.id));
+        console.log(searchResult.receivable_type, searchResult.receivable_id);
         var chat;
         if (searchResult.receivable_type === "Channel") {
           chat = "# Channel: " +ChannelStore.getByChannelID(searchResult.receivable_id)[0].title;
