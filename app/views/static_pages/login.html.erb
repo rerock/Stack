@@ -22,10 +22,12 @@
         </form>
         <form action="/session" method="post" class="form_static floating-box">
           <%= auth_token %>
+          <% team_id = params[:team_id] %>
+          <% user = User.where(team_id: team_id).first %>
           <input
             type="hidden"
             name="user[username]"
-            value="Wen@stack.com"
+            value="<%=user.username%>"
             id="user_username">
           <input
             type="hidden"
@@ -36,14 +38,16 @@
             name="user[password]"
             value="12345678"
             id="user_password">
-          <button type="submit" id="wen">Login as Wen</button>
+          <button type="submit">Login as <%=user.handle%></button>
         </form>
         <form action="/session" method="post" class="form_static floating-box">
           <%= auth_token %>
+          <% team_id = params[:team_id] %>
+          <% user = User.where(team_id: team_id)[1]%>
           <input
             type="hidden"
             name="user[username]"
-            value="Liang@stack.com"
+            value="<%=user.username%>"
             id="user_username">
           <input
             type="hidden"
@@ -54,7 +58,7 @@
             name="user[password]"
             value="12345678"
             id="user_password">
-          <button type="submit" id="liang">Login as Liang</button>
+          <button type="submit">Login as <%=user.handle%></button>
         </form>
         <ul class="bg-bubbles">
           <li></li>

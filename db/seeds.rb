@@ -13,20 +13,11 @@ TEAMS.each do |team|
   Team.create(name: team)
 end
 
-EMAILS = %w(
-  Wen@stack.com
-  Liang@stack.com
-)
-
-28.times do
-  EMAILS.unshift(Faker::Internet.email)
-end
-
 Team.all.each do |team|
-  EMAILS.each do |email|
+  30.times do
     User.create(
       password: "12345678",
-      username: email,
+      username: Faker::Internet.email,
       team_id: team.id,
       is_admin: true
     )
@@ -54,34 +45,36 @@ Team.all.each do |team|
 end
 
 
-User.all.each do |user|
-  Channel.all.each do |channel|
-    Message.create(
-      sender_id: user.id,
-      receivable_id: channel.id,
-      receivable_type: "Channel",
-      text: Faker::Hacker.say_something_smart
-    )
+Team.all.each do |team|
+  User.where(team_id: team.id).each do |user|
+    Channel.where(team_id: team.id).each do |channel|
+      Message.create(
+        sender_id: user.id,
+        receivable_id: channel.id,
+        receivable_type: "Channel",
+        text: Faker::Hacker.say_something_smart
+      )
+    end
   end
 end
 
 
-
-
-User.all.each do |user|
-  other_users = User.all.select{ |other| other.id != user.id }
-  other_users.each do |other_user|
-    Message.create(
-      sender_id: user.id,
-      receivable_id: other_user.id,
-      receivable_type: "User",
-      text: Faker::StarWars.quote
-    )
-    Message.create(
-      sender_id: other_user.id,
-      receivable_id: user.id,
-      receivable_type: "User",
-      text: Faker::StarWars.quote
-    )
+Team.all.each do |team|
+  User.where(team_id: team.id).each do |user|
+    other_users = User.where(team_id: team.id).select{ |other| other.id != user.id }
+    other_users.each do |other_user|
+      Message.create(
+        sender_id: user.id,
+        receivable_id: other_user.id,
+        receivable_type: "User",
+        text: Faker::StarWars.quote
+      )
+      Message.create(
+        sender_id: other_user.id,
+        receivable_id: user.id,
+        receivable_type: "User",
+        text: Faker::StarWars.quote
+      )
+    end
   end
 end
