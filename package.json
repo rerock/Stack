@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/rerock/NewStack#readme",
   "dependencies": {
+    "moment": "^2.9.0",
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.4",
     "babel-preset-react": "^6.5.0",
