@@ -8,7 +8,7 @@ var MessageList = React.createClass({
     var messages_by_date = groupBy(this.props.messages, function(item){
       return [new Date(item.created_at).toLocaleDateString()];
     });
-    
+
     return (
       <ul className="message-list">
         {
@@ -22,7 +22,7 @@ var MessageList = React.createClass({
               />
             });
             var date = (
-              <li className="date"><span>{moment(new Date(messages[0].created_at)).format("MMMM Do")}</span></li>
+              <div className="date"><span>{moment(new Date(messages[0].created_at)).format("MMMM Do")}</span></div>
             );
             out.unshift(date)
             return out;

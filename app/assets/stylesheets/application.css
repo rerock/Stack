@@ -600,11 +600,12 @@ img{
 }
 
 .date {
+  margin-top:55px;
+  margin-bottom: 20px;
   width:100%;
   text-align:center;
   border-bottom: 1px solid #bfbfbf;
   line-height:0.1em;
-  margin:10px 0 20px;
   font-size: 25px;
   font-weight: bold;
 }
@@ -649,6 +650,7 @@ img{
   width: 100%;
   border: 2px solid #00A4A3;
   padding: 10px;
+  margin-top:20px;
 }
 
 
@@ -731,10 +733,10 @@ img{
 .other-message-data img{
   height: 20vh;
   width: 20vh;
-  padding: 15px 30px;
+  padding: 15px 10px;
   float: left;
   display: block;
-  border-radius: 0px;
+  border-radius: 30px;
 }
 
 
