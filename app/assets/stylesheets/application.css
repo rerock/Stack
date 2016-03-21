@@ -521,6 +521,12 @@ img{
   padding-bottom: 30px;
 }
 
+.profile_picture {
+  width: 40px;
+  height: 40px;
+  padding: 20px 5px 0px 0px;
+}
+
 .profile{
   height: auto;
   width: 20%;
@@ -721,7 +727,7 @@ img{
   color: white;
 }
 
-.message-data img{
+.message-data .giphies{
   height: 20vh;
   width: 20vh;
   padding: 15px 10px;
@@ -730,7 +736,7 @@ img{
   border-radius: 30px;
 }
 
-.other-message-data img{
+.other-message-data .giphies{
   height: 20vh;
   width: 20vh;
   padding: 15px 10px;

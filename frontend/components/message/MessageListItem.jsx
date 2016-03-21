@@ -7,10 +7,13 @@ var MessageListItem = React.createClass({
     var createdAt = new Date(message.created_at).toLocaleTimeString();
     var author_id = message.sender_id;
     var author = UserStore.getByUserID(author_id)[0].handle;
+    var pro_pic = UserStore.getByUserID(author_id)[0].avatar_url;
     var image = "";
     if (message.img_url) {
       // console.log(message.text, message.img_url)
-      image = <a href={message.img_url}><img src={message.img_url}/></a>
+      image = <a href={message.img_url}>
+          <img className="giphies" src={message.img_url}/>
+        </a>
     }
 
     var name_class = parseInt(this.props.user_id) === message.sender_id ?
@@ -21,6 +24,7 @@ var MessageListItem = React.createClass({
     return (
       <li className='message group'>
         <div className={name_class + " message-time-stamp"}>
+          <img className="profile_picture" src={pro_pic}/>
           <span className="message-data-name" >{author}</span> &nbsp; &nbsp;
           <span className="message-data-time" >{createdAt}</span>
         </div>

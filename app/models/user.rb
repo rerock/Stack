@@ -45,6 +45,7 @@ class User < ActiveRecord::Base
   def default_values
     if self.username
       self.handle = self.username.split(/\W/)[0].split("_")[0].capitalize
+      self.avatar_url = Faker::Avatar.image
     end
 
     self.is_admin ||= true
