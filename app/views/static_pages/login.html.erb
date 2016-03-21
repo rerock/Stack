@@ -23,7 +23,7 @@
         <form action="/session" method="post" class="form_static floating-box">
           <%= auth_token %>
           <% team_id = params[:team_id] %>
-          <% user = User.where(team_id: team_id).first %>
+          <% user = User.where(team_id: team_id)[-1] %>
           <input
             type="hidden"
             name="user[username]"
@@ -43,7 +43,7 @@
         <form action="/session" method="post" class="form_static floating-box">
           <%= auth_token %>
           <% team_id = params[:team_id] %>
-          <% user = User.where(team_id: team_id)[1]%>
+          <% user = User.where(team_id: team_id)[-2]%>
           <input
             type="hidden"
             name="user[username]"

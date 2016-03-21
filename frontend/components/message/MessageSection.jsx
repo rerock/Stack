@@ -96,6 +96,7 @@ var MessageSection = React.createClass({
         <div className='panel-body-messages'>
           <MessageList
             messages={this.state.messages}
+            create={this.createMessage}
             ref="messageList"
             {...this.props}
           />

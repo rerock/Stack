@@ -7,9 +7,9 @@ var MessageListItem = React.createClass({
     var createdAt = new Date(message.created_at).toLocaleTimeString();
     var author_id = message.sender_id;
     var author = UserStore.getByUserID(author_id)[0].handle;
-
     var image = "";
     if (message.img_url) {
+      // console.log(message.text, message.img_url)
       image = <a href={message.img_url}><img src={message.img_url}/></a>
     }
 

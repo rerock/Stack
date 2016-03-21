@@ -8,9 +8,11 @@ var MessageList = React.createClass({
       <ul className="message-list">
         {
           this.props.messages.map( function(message) {
+            debugger;
             return <MessageListItem
               key={message.id}
               message={message}
+              create={self.createMessage}
               {...self.props}
             />
           })
