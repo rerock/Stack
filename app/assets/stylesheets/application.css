@@ -361,7 +361,7 @@ li.HelvetiList a {
 }
 
 li.HelvetiList a:hover {
-  font-size: 30px;
+  font-size: 25px;
   background: black;
 }
 
@@ -493,7 +493,7 @@ li.HelvetiList a:hover {
 
 .sidebar li:hover, .panel-username a:hover  {
   background: black;
-  margin: 10px 20px 20px 0px;
+  margin: 0px 20px 20px 0px;
   cursor: pointer;
   border-radius: 8px;
   font-size: 25px;
@@ -511,7 +511,7 @@ li.HelvetiList a:hover {
   -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
   transition: font-size 0.3s ease, background-color 0.3s ease;
   display: block;
-  width: 180px;
+  width: 150px;
 }
 
 img{
