@@ -305,7 +305,8 @@ form button:hover {
 
 ul.message-list{
   background: white;
-  height:80vh;
+  height:75%;
+  padding-bottom: 5%;
   width: 100%;
 }
 div.HelvetiList{
@@ -542,7 +543,7 @@ img{
 }
 
 .message-header {
-  height: 5vh;
+  height: 5%;
 }
 
 
@@ -556,9 +557,8 @@ img{
   overflow: scroll;
 }
 .header {
-  height: 4vh;
   vertical-align: bottom;
-  padding-bottom: 30px;
+  height: 5%;
 }
 
 
@@ -570,6 +570,7 @@ img{
 
 .conversation-header {
   float: left;
+  padding-bottom: 20px;
   /*width: calc(100% - 240px - 300px);*/
 }
 
@@ -584,7 +585,7 @@ img{
 
 
 .panel-body-messages {
-  height: 95vh;
+  height: 95%;
 }
 
 .support, .users{
@@ -654,11 +655,11 @@ img{
 .message-composer {
   font-family: inherit;
   font-size: 20px;
-  height: 5vh;
+  height: 10%;
   width: 100%;
   border: 2px solid #00A4A3;
-  padding: 10px;
-  margin-top:20px;
+  resize: none;
+  padding:10px;
 }
 
 

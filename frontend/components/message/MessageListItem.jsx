@@ -36,9 +36,6 @@ var MessageListItem = React.createClass({
         <div className="message-content group">
           <div className={messages_class+ " message-item"}>
             {EmojiReact.emojify(message.text)}
-            <Emojis
-              {...this.props}
-              />
           </div>
         </div>
         <div className={name_class}>
