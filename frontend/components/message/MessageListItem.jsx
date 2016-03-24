@@ -1,7 +1,7 @@
 var React = require('react');
 var UserStore = require('../../stores/UserStore');
 var Emojis = require('./Emojis');
-var EmojiReact = require('react-emoji');
+// var EmojiReact = require('react-emoji');
 
 var MessageListItem = React.createClass({
 
