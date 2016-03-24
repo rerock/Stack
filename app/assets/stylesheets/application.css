@@ -601,6 +601,7 @@ img{
   height: 88%;
 }
 
+
 .channels > ul, .users > ul, .form-group > ul{
   flex: 1;
   overflow-y: scroll;
@@ -720,6 +721,12 @@ img{
   color: white;
 }
 
+.emojis{
+  /*background: white;*/
+  line-height: 20px;
+  vertical-align: middle;
+  /*display: inline-block;*/
+}
 
 .other-message {
   background: #49e16c;

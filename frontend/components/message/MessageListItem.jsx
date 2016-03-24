@@ -1,7 +1,12 @@
 var React = require('react');
 var UserStore = require('../../stores/UserStore');
+var Emojis = require('./Emojis');
+var EmojiReact = require('react-emoji');
 
 var MessageListItem = React.createClass({
+
+  mixins: [EmojiReact],
+
   render: function(){
     var message = this.props.message;
     var createdAt = new Date(message.created_at).toLocaleTimeString();
@@ -20,7 +25,6 @@ var MessageListItem = React.createClass({
       "message-data" : "other-message-data"
     var messages_class = parseInt(this.props.user_id) === message.sender_id ?
       "my-message" : "other-message"
-
     return (
       <li className='message group'>
         <div className={name_class + " message-time-stamp"}>
@@ -31,7 +35,10 @@ var MessageListItem = React.createClass({
 
         <div className="message-content group">
           <div className={messages_class+ " message-item"}>
-            {message.text}
+            {EmojiReact.emojify(message.text)}
+            <Emojis
+              {...this.props}
+              />
           </div>
         </div>
         <div className={name_class}>
