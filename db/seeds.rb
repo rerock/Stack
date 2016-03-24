@@ -19,7 +19,8 @@ Team.all.each do |team|
       password: "12345678",
       username: Faker::Internet.email,
       team_id: team.id,
-      is_admin: true
+      is_admin: true,
+      avatar_url: Faker::Avatar.image
     )
   end
 end
