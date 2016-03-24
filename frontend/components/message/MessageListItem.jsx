@@ -1,6 +1,6 @@
 var React = require('react');
 var UserStore = require('../../stores/UserStore');
-// var Emojis = require('./Emojis');
+var Emojis = require('./Emojis');
 var EmojiReact = require('react-emoji');
 
 var MessageListItem = React.createClass({
@@ -36,6 +36,9 @@ var MessageListItem = React.createClass({
           <div className={messages_class+ " message-item"}>
             {EmojiReact.emojify(message.text)}
           </div>
+          <Emojis
+            {...this.props}
+            />
         </div>
         <div className={name_class}>
           {image}
