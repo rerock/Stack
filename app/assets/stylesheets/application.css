@@ -652,6 +652,15 @@ img{
   padding-top: 10px;
 }
 
+.emojis {
+  color: black;
+}
+.emojis img {
+  width: 22px;
+  height: 22px;
+  opacity: 50;
+}
+
 .message-composer {
   font-family: inherit;
   font-size: 20px;
@@ -661,6 +670,7 @@ img{
   resize: none;
   padding:10px;
 }
+
 
 
 .message-list-item {
