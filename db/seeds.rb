@@ -44,6 +44,14 @@ Team.all.each do |team|
   end
 end
 
+User.all.each do |user|
+  team_id = user.team_id
+  channel_id = Channel.where(team_id: team_id, title:"administration")[0].id
+  user.update!(last_receivable_type: "Channel")
+  user.update!(last_receivable_id: channel_id)
+end
+
+
 TEXT = %w(
   dog
   code
@@ -92,27 +100,29 @@ URL = %w(
 
 Team.all.each do |team|
   Channel.where(team_id: team.id).each do |channel|
-    DATE = []
-    50.times do
-      DATE << Faker::Time.between(2.days.ago, Time.now, :all)
-    end
-    DATE.sort!
+    # DATE = []
+    # 50.times do
+    #   DATE << Faker::Time.between(2.days.ago, Time.now, :all)
+    # end
+    # DATE.sort!
     User.where(team_id: team.id).each do |user|
-      Message.create(
-        sender_id: user.id,
-        receivable_id: channel.id,
-        receivable_type: "Channel",
-        text: Faker::Hacker.say_something_smart,
-        created_at: DATE.shift
-      )
+      if user.id % 5 == 0
+        Message.create(
+          sender_id: user.id,
+          receivable_id: channel.id,
+          receivable_type: "Channel",
+          text: Faker::Hacker.say_something_smart
+          # created_at: DATE.shift
+        )
+      end
       if user.id % 3 == 0
         Message.create(
           sender_id: user.id,
           receivable_id: channel.id,
           receivable_type: "Channel",
           text: "/giphy "+TEXT[user.id % 10 +channel.id % 10],
-          img_url: URL[user.id % 10 +channel.id % 10],
-          created_at: DATE.shift
+          img_url: URL[user.id % 10 +channel.id % 10]
+          # created_at: DATE.shift
         )
       end
     end
@@ -121,21 +131,22 @@ end
 
 
 Team.all.each do |team|
-  DATE = []
-  200.times do
-    DATE << Faker::Time.between(2.days.ago, Time.now, :all)
-  end
-  DATE.sort!
+  # DATE = []
+  # 200.times do
+  #   DATE << Faker::Time.between(2.days.ago, Time.now, :all)
+  # end
+  # DATE.sort!
 
   User.where(team_id: team.id).each do |user|
-    other_users = User.where(team_id: team.id).select{ |other| other.id != user.id }
+    # other_users = User.where(team_id: team.id).select{ |other| other.id != user.id }
+    other_users = User.where(team_id: team.id)
     other_users.each do |other_user|
       Message.create(
         sender_id: other_user.id,
         receivable_id: user.id,
         receivable_type: "User",
-        text: Faker::StarWars.quote,
-        created_at: DATE.shift
+        text: Faker::StarWars.quote
+        # created_at: DATE.shift
       )
       if other_user.id % 3 == 0
         random = rand(11)
@@ -144,8 +155,8 @@ Team.all.each do |team|
           receivable_id: user.id,
           receivable_type: "User",
           text: "/giphy "+TEXT[random],
-          img_url: URL[random],
-          created_at: DATE.shift
+          img_url: URL[random]
+          # created_at: DATE.shift
         )
       end
     end
