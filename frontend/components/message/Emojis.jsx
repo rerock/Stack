@@ -10,7 +10,6 @@ var Emojis = React.createClass({
   },
 
   onReaction: function(name) {
-    console.log("name1",name);
     var emojis = this.state.emojis.map( function(emoji) {
       if (emoji.name === name) {
         emoji.count += 1;
@@ -21,7 +20,6 @@ var Emojis = React.createClass({
   },
 
   onEmojiClick: function(name) {
-    console.log("name2",name);
     var emojis = this.state.emojis;
     emojis = emojis.concat([{name, count: 1}]);
     this.setState({emojis: emojis });
