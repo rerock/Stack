@@ -1,6 +1,6 @@
 var React = require('react');
 var UserStore = require('../../stores/UserStore');
-var Emojis = require('./Emojis');
+// var Emojis = require('./Emojis');
 var EmojiReact = require('react-emoji');
 
 var MessageListItem = React.createClass({
@@ -15,7 +15,6 @@ var MessageListItem = React.createClass({
     var pro_pic = UserStore.getByUserID(author_id)[0].avatar_url;
     var image = "";
     if (message.img_url) {
-      // console.log(message.text, message.img_url)
       image = <a href={message.img_url}>
           <img className="giphies" src={message.img_url}/>
         </a>
@@ -35,7 +34,7 @@ var MessageListItem = React.createClass({
 
         <div className="message-content group">
           <div className={messages_class+ " message-item"}>
-            {EmojiReact.emojify(message.text)}
+            {message.text}
           </div>
         </div>
         <div className={name_class}>
