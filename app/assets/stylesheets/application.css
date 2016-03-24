@@ -721,12 +721,6 @@ img{
   color: white;
 }
 
-.emojis{
-  /*background: white;*/
-  line-height: 20px;
-  vertical-align: middle;
-  /*display: inline-block;*/
-}
 
 .other-message {
   background: #49e16c;
