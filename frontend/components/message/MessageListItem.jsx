@@ -1,7 +1,7 @@
 var React = require('react');
 var UserStore = require('../../stores/UserStore');
-// var Emojis = require('./Emojis');
-// var EmojiReact = require('react-emoji');
+var Emojis = require('./Emojis');
+var EmojiReact = require('react-emoji');
 
 var MessageListItem = React.createClass({
 
@@ -17,7 +17,7 @@ var MessageListItem = React.createClass({
     if (message.img_url) {
       image = <a href={message.img_url}>
           <img className="giphies" src={message.img_url}/>
-        </a>
+      </a>
     }
 
     var name_class = parseInt(this.props.user_id) === message.sender_id ?
@@ -34,7 +34,10 @@ var MessageListItem = React.createClass({
 
         <div className="message-content group">
           <div className={messages_class+ " message-item"}>
-            {message.text}
+            {EmojiReact.emojify(message.text)}
+            <Emojis
+              {...this.props}
+              />
           </div>
         </div>
         <div className={name_class}>
