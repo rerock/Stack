@@ -20,8 +20,7 @@ var Emojis = React.createClass({
   },
 
   onEmojiClick: function(name) {
-    var emojis = this.state.emojis;
-    emojis = emojis.concat([{name, count: 1}]);
+    var emojis = this.state.emojis.concat([{name, count: 1}]);
     this.setState({emojis: emojis });
   },
 
