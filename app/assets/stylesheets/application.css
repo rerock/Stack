@@ -441,6 +441,7 @@ li.HelvetiList a:hover {
 .panel-heading a:link, .panel-username a:link {
     text-decoration: none;
     color: white;
+    width: 200px;
 }
 
 .panel-heading a:visited, .panel-username a:visited {
