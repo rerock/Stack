@@ -107,16 +107,7 @@ Team.all.each do |team|
     # end
     # DATE.sort!
     User.where(team_id: team.id).each do |user|
-      if user.id % 5 == 0
-        Message.create(
-          sender_id: user.id,
-          receivable_id: channel.id,
-          receivable_type: "Channel",
-          text: Faker::Hacker.say_something_smart
-          # created_at: DATE.shift
-        )
-      end
-      if user.id % 3 == 0
+      if user.id % 9 == 0
         Message.create(
           sender_id: user.id,
           receivable_id: channel.id,
@@ -124,6 +115,31 @@ Team.all.each do |team|
           text: "/giphy "+TEXT[user.id % 10 +channel.id % 10],
           img_url: URL[user.id % 10 +channel.id % 10]
           # created_at: DATE.shift
+        )
+      end
+      if user.id % 7 == 0
+        Message.create(
+        sender_id: user.id,
+        receivable_id: channel.id,
+        receivable_type: "Channel",
+        text: Faker::Hacker.say_something_smart
+        # created_at: DATE.shift
+        )
+      end
+      if user.id == User.where(team_id: team.id)[-1].id
+        Message.create(
+        sender_id: user.id,
+        receivable_id: channel.id,
+        receivable_type: "Channel",
+        text: "Which of the following data structure store the homogeneous data elements?"
+        # created_at: DATE.shift
+        )
+        Message.create(
+        sender_id: user.id,
+        receivable_id: channel.id,
+        receivable_type: "Channel",
+        text: "/vote Arrays Records Pointers None"
+        # created_at: DATE.shift
         )
       end
     end
