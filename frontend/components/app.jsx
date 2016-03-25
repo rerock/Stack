@@ -37,7 +37,7 @@ module.exports = React.createClass({
     return (
       <div className='app'>
         <div className='sidebar'>
-          <img src={images.logo}/>
+          <img className="logo" src={images.logo}/>
           <section className="sidebar-user">
             <div className='panel-heading'>
               <a href={team_index}>{current_team}</a>

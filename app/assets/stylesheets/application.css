@@ -516,7 +516,7 @@ li.HelvetiList a:hover {
   width: 150px;
 }
 
-img{
+.logo {
   height: auto;
   width: 100%;
   padding-right: 30px;
@@ -654,11 +654,6 @@ img{
 
 .emojis {
   color: black;
-}
-.emojis img {
-  width: 22px;
-  height: 22px;
-  opacity: 50;
 }
 
 .message-composer {

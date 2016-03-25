@@ -4,8 +4,14 @@ var ReactDOM = require('react-dom');
 
 var Emojis = React.createClass({
   getInitialState: function () {
+    var emojis = this.props.initialEmojis.map(function(emoji){
+      return {
+        name: emoji.split(":").join(""),
+        count: 1
+      };
+    });
     return({
-      emojis: []
+      emojis: emojis
     });
   },
 
@@ -16,11 +22,13 @@ var Emojis = React.createClass({
       }
       return emoji;
     });
+    console.log(name);
     this.setState({emojis: emojis });
   },
 
   onEmojiClick: function(name) {
     var emojis = this.state.emojis.concat([{name, count: 1}]);
+    console.log(name);
     this.setState({emojis: emojis });
   },
 
