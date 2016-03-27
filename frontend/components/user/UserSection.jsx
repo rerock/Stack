@@ -21,7 +21,7 @@ var UserSection = React.createClass({
 
   render: function () {
     return (
-      <div className='support panel panel-primary'>
+      <div className='support'>
         <div className='panel-heading'>
           <strong>DIRECT MESSAGES</strong>
         </div>

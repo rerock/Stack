@@ -46,7 +46,7 @@ var ChannelSection = React.createClass({
 
   render: function () {
     return (
-      <div className='support panel panel-primary'>
+      <div className='support'>
         <div className='panel-heading'>
           <strong>CHANNELS</strong>
         </div>

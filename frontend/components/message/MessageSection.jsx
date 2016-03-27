@@ -6,6 +6,7 @@ var MessageStore = require('../../stores/MessageStore');
 var MessageActions = require('../../actions/message/MessageActions');
 var UserStore = require('../../stores/UserStore');
 var ChannelStore = require('../../stores/ChannelStore');
+var Search = require('./Search');
 
 var MessageSection = React.createClass({
   getInitialState: function () {
@@ -91,6 +92,7 @@ var MessageSection = React.createClass({
         <header className="header group">
           <div className="conversation-header">
             <h1 className="message-thread-heading">{name}</h1>
+            <Search {...this.props}/>
           </div>
         </header>
         <div className='panel-body-messages'>

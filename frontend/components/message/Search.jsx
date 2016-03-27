@@ -68,7 +68,7 @@ var Search = React.createClass({
     }.bind(this));
 
     return (
-      <div className='support panel panel-primary'>
+      <div className='search'>
         <div className="form-group">
           <input
             className="search-input"
@@ -76,7 +76,7 @@ var Search = React.createClass({
             placeholder="Search Messages"
             onKeyUp={this.search} />
         </div>
-        <div className='panel-body channels'>
+        <div>
           <ul>
             {searchResults}
           </ul>

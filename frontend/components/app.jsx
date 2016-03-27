@@ -2,11 +2,9 @@ var React = require('react');
 var ChannelSection = require('./channel/ChannelSection.jsx');
 var MessageSection = require('./message/MessageSection.jsx');
 var UserSection = require('./user/UserSection.jsx');
-
 var ChannelActions = require('../actions/channel/ChannelActions');
 var MessageActions = require('../actions/message/MessageActions');
 var UserActions = require('../actions/user/UserActions');
-var Search = require('./message/Search');
 var images = require('../util/image_links');
 
 module.exports = React.createClass({
@@ -56,9 +54,7 @@ module.exports = React.createClass({
             setActive={this.setActive}
             {...this.state}
           />
-          <Search {...this.state}/>
         </div>
-
       <MessageSection
         {...this.state}
       />

@@ -110,7 +110,7 @@ h2 {
   width: 100%;
   box-sizing: border-box;
   padding: 10px 20px 10px 0px;
-  height: 100px; 
+  height: 100px;
 }
 
 button:hover{
@@ -129,7 +129,7 @@ button:hover{
 }
 
 
-.channel-composer, .search-input{
+.channel-composer{
   box-sizing: border-box;
   font-family: inherit;
   font-size: 15px;
@@ -141,14 +141,32 @@ button:hover{
   margin-bottom: 20px;
 }
 
-
-.channel-composer::-webkit-input-placeholder,
-.search-input::-webkit-input-placeholder{
-    color:grey;
+.search-input{
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 18px;
+  height: 2.5em;
+  width: 85%;
+  border-radius: 10px;
+  padding:5px 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  background: black;
+  color: white;
 }
-.channel-composer:-moz-placeholder,
+
+
+.channel-composer::-webkit-input-placeholder{
+  color:grey;
+}
+.search-input::-webkit-input-placeholder{
+  color:white;
+}
+.channel-composer:-moz-placeholder {
+  color:grey;
+}
 .search-input:-moz-placeholder {
-    color:grey;
+  color: white;
 }
 
 .channel-composer:hover,
@@ -524,7 +542,7 @@ li.HelvetiList a:hover {
   -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
   transition: font-size 0.3s ease, background-color 0.3s ease;
   display: block;
-  width: 150px;
+  width: 135px;
 }
 
 .logo {
@@ -584,11 +602,13 @@ li.HelvetiList a:hover {
   font-size: 30px;
   height: 80%;
   text-align: left;
+  float: left;
 }
 
 .conversation-header {
   float: left;
   padding-bottom: 20px;
+  display: inline-block;
   /*width: calc(100% - 240px - 300px);*/
 }
 
@@ -613,6 +633,13 @@ li.HelvetiList a:hover {
   height: 25%;
   width: 100%;
   margin-bottom: 0;
+}
+
+.search {
+  position: fixed;
+  right: 50px;
+  top:30px;
+  width:240px;
 }
 .channels, .users{
   display: flex;
