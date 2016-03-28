@@ -11,7 +11,7 @@ var UsersListItem = React.createClass({
 
   render: function () {
     var user = this.props.user;
-    var handle = user.id === parseInt(this.props.user_id) ? "♥ stackbot" : " @ "+user.handle
+    var handle = user.id === parseInt(this.props.user_id) ? "♥ Stackbot" : " @ "+user.handle
     var activeUser = this.props.active.receivable_id;
     var active = ''
     if ( user.id === activeUser  && this.props.active.receivable_type === 'User'){
