@@ -655,7 +655,6 @@ li.HelvetiList a:hover {
 
 .channels > ul, .users > ul, .form-group > ul{
   flex: 1;
-  overflow-y: scroll;
 }
 
 .date {
